@@ -1,0 +1,92 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-image: url(./img/bg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+.container {
+    margin: auto;
+    padding: 20px;
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.29);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .container h2{
+    font-size: 36px;
+    text-align: center;
+    color: white;    
+    margin-bottom: 20px;
+}
+.container input{
+    background: none;
+    border: solid;
+    border-radius: 10%;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.container ::placeholder{
+    color: antiquewhite;
+}
+
+.container button{
+    background-color: aliceblue;
+}
+
+
+#login{
+    background: rgba(255, 255, 255, 0.29);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.4px);
+-webkit-backdrop-filter: blur(7.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+max-width: 300px;
+max-height: 800px;
+}
+#register{
+background: rgba(255, 255, 255, 0.29);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(7.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+max-width: 300px;
+max-height: 800px;
+visibility: hidden;
+
+}
+
+
+
+
+.container p{
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
