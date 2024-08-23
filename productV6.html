@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List with Cycles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product-item {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .product-details {
+      width: 70%;
+    }
+
+    .product-details h3 {
+      margin-bottom: 10px;
+    }
+
+    .cycle-info {
+      width: 30%;
+      text-align: center;
+    }
+
+    .cycles-list, .add-cycle {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Product List with Cycles</h1>
+  <div class="product-list" id="product-list"></div>
+  <p id="error-message" style="color: red; text-align: center;"></p>
+
+  <script>
+    async function fetchProducts() {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      try {
+        const response = await fetch('http://localhost:3000/api/products', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+
+        if (response.ok) {
+          const productsData = await response.json();
+          displayProducts(productsData.data); // Directly use productsData.data
+        } else {
+          const errorData = await response.json();
+          document.getElementById('error-message').textContent = errorData.error || 'Error fetching products.';
+        }
+      } catch (error) {
+        document.getElementById('error-message').textContent = 'Failed to fetch products. Please try again later.';
+      }
+    }
+
+    async function displayProducts(products) {
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = ''; // Clear the list first
+
+      for (const product of products) {
+        const productItem = document.createElement('div');
+        productItem.className = 'product-item';
+
+        const currentYear = new Date().getFullYear();
+
+        productItem.innerHTML = `
+          <div class="product-details">
+            <h3>Brand: ${product.brand}</h3>
+            <p><strong>Model:</strong> ${product.model}</p>
+            <p><strong>Serial:</strong> ${product.serial}</p>
+            <p><strong>Institution:</strong> ${product.institution_name}</p>
+            ${product.responsible ? `<p><strong>Responsible:</strong> ${product.responsible}</p>` : ''}
+            ${product.owner ? `<p><strong>Owner:</strong> ${product.owner}</p>` : ''}
+            ${product.status ? `<p><strong>Status:</strong> ${product.status}</p>` : ''}
+          </div>
+          <div class="cycle-info">
+            <label for="year-select-${product.id}">Select Year:</label>
+            <select id="year-select-${product.id}" onchange="fetchCycles(${product.id}, this.value)">
+              ${generateYearOptions(currentYear)}
+            </select>
+            <div class="cycles-list" id="cycles-list-${product.id}">
+              <!-- Cycles will be displayed here -->
+            </div>
+            <div class="add-cycle">
+              <label for="add-year-${product.id}">Year:</label>
+              <select id="add-year-${product.id}">
+                ${generateYearOptions(currentYear)}
+              </select>
+
+              <label for="add-month-${product.id}">Month:</label>
+              <select id="add-month-${product.id}">
+                ${generateMonthOptions()}
+              </select>
+
+              <label for="cycle-value-${product.id}">Cycle:</label>
+              <input type="number" id="cycle-value-${product.id}" placeholder="Enter cycle value">
+
+              <button onclick="saveCycle(${product.id})">Save Cycle</button>
+            </div>
+          </div>
+        `;
+
+        productList.appendChild(productItem);
+
+        // Fetch the cycles for the default year (current year)
+        fetchCycles(product.id, currentYear);
+      }
+    }
+
+    function generateYearOptions(currentYear) {
+      let options = '';
+      for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+        options += `<option value="${i}" ${i === currentYear ? 'selected' : ''}>${i}</option>`;
+      }
+      return options;
+    }
+
+    function generateMonthOptions() {
+      let options = '';
+      for (let i = 1; i <= 12; i++) {
+        options += `<option value="${i}">${i}</option>`;
+      }
+      return options;
+    }
+
+    async function fetchCycles(productId, year) {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      try {
+        const response = await fetch(`http://localhost:3000/api/products/${productId}/cycles/${year}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+
+        if (response.ok) {
+          const cyclesData = await response.json();
+          displayCycles(productId, cyclesData.data); // Ensure cyclesData.data is used to access the array
+        } else {
+          document.getElementById(`cycles-list-${productId}`).textContent = 'No data available.';
+        }
+      } catch (error) {
+        document.getElementById(`cycles-list-${productId}`).textContent = 'Failed to fetch cycles.';
+      }
+    }
+
+    function displayCycles(productId, cycles) {
+      const cyclesList = document.getElementById(`cycles-list-${productId}`);
+      cyclesList.innerHTML = ''; // Clear previous cycles
+
+      const months = Array.from({ length: 12 }, (_, i) => i + 1);
+      months.forEach(month => {
+        // Find the cycle for the current month
+        const cycle = cycles.find(c => c.month === month);
+
+        // If the cycle exists for this month, display its cycle number, otherwise show "No data"
+        const cycleInfo = cycle ? `Cycle: ${cycle.cycle}` : 'No data';
+
+        // Create a new element to display the cycle information
+        const cycleItem = document.createElement('p');
+        cycleItem.textContent = `Month ${month}: ${cycleInfo}`;
+        cyclesList.appendChild(cycleItem);
+      });
+    }
+
+    async function saveCycle(productId) {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      const year = document.getElementById(`add-year-${productId}`).value;
+      const month = document.getElementById(`add-month-${productId}`).value;
+      const cycle = document.getElementById(`cycle-value-${productId}`).value;
+
+      if (!cycle) {
+        alert('Please enter a cycle value.');
+        return;
+      }
+
+      const payload = {
+        product_id: productId,
+        year: parseInt(year),
+        month: parseInt(month),
+        cycle: parseInt(cycle)
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/cycles', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          alert('Cycle added successfully!');
+          fetchCycles(productId, year); // Refresh cycles after adding a new one
+        } else {
+          const errorData = await response.json();
+          alert('Failed to add cycle: ' + (errorData.error || 'Unknown error'));
+        }
+      } catch (error) {
+        alert('Failed to add cycle: ' + error.message);
+      }
+    }
+
+    // Fetch products when the page loads
+    fetchProducts();
+  </script>
+
+</body>
+</html>
