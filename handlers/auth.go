@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/golang-jwt/jwt/v4"
 )
 
 type LoginRequest struct {
@@ -74,32 +73,4 @@ func (h *Handler) Register(c *fiber.Ctx) error {
 		})
 	}
 	return Response(c, 200, "user registered successfully", registerRequest)
-}
-
-// @title Fiber API Documentation
-// @version 1.0
-// @description This is a sample API with JWT authentication.
-// @securityDefinitions.apikey ApiKeyAuth
-// @in header
-// @name Authorization
-
-// Admin handler
-// @Summary Admin access
-// @Description This endpoint is restricted to admin users only. It validates the JWT token and checks if the user has an "admin" role.
-// @Tags admin
-// @Accept  json
-// @Produce  json
-// @Security ApiKeyAuth
-// @Success 200 {string} string "Welcome Admin!"
-// @Router /admin [get]
-func (h *Handler) Admin(c *fiber.Ctx) error {
-	user := c.Locals("user").(*jwt.Token)
-	claims := user.Claims.(jwt.MapClaims)
-	role := claims["role"].(string)
-
-	if role != "admin" {
-		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "Access denied"})
-	}
-
-	return c.SendString("Welcome Admin!")
 }

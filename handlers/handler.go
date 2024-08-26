@@ -49,7 +49,10 @@ func (h *Handler) Init() {
 
 	// Admin rotaları
 	admin := api.Group("/admin")
+	admin.Use(AdminMiddleware)
 	admin.Get("/", h.Admin)
+	admin.Post("/user", h.AddUser)
+	admin.Get("/user", h.GetAllUsers)
 
 	app.Listen(":3000")
 }

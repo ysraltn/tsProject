@@ -10,10 +10,11 @@ CREATE TABLE Products (
     serial TEXT NOT NULL,
     brand VARCHAR(255) NOT NULL,
     model VARCHAR(255) NOT NULL,
-    location TEXT,
+    institution_id INT,
     responsible TEXT,
     owner TEXT,
-    status TEXT
+    status TEXT,
+    FOREIGN KEY (institution_id) REFERENCES institutions(id)
 );
 
 CREATE TABLE Cycles (
@@ -38,6 +39,4 @@ CREATE TABLE institutions (
     name VARCHAR(255) NOT NULL,
     city VARCHAR(255) NOT NULL
 );
-
-//productstaki location institution_id ile değişti !!! dikkat et!!!
 

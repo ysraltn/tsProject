@@ -12,10 +12,11 @@ func NewUserService(userRepositories models.IUserRepository) models.IUserService
 	}
 }
 
-func (s *UserService) Add(username, password string) error {
+func (s *UserService) Add(username, password, role string) error {
 	user := &models.User{
 		Username: username,
 		Password: password,
+		Role: role,
 	}
 	err := s.userRepositories.Add(user)
 	if err != nil {

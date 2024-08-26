@@ -16,7 +16,7 @@ type IUserRepository interface {
 }
 
 type IUserService interface {
-	Add(username, password string) error
+	Add(username, password, role string) error
 	Delete(id int) error
 	GetAll() ([]User, error)
 	GetByID(id int) (*User, error)
