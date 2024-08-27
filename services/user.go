@@ -1,6 +1,9 @@
 package services
 
-import "tsProject/models"
+import (
+	"tsProject/models"
+	"tsProject/utils"
+)
 
 type UserService struct {
 	userRepositories models.IUserRepository
@@ -13,12 +16,16 @@ func NewUserService(userRepositories models.IUserRepository) models.IUserService
 }
 
 func (s *UserService) Add(username, password, role string) error {
+	hashedPassword, err := utils.HashPassword(password)
+	if err != nil {
+		return err
+	}
 	user := &models.User{
 		Username: username,
-		Password: password,
-		Role: role,
+		Password: hashedPassword,
+		Role:     role,
 	}
-	err := s.userRepositories.Add(user)
+	err = s.userRepositories.Add(user)
 	if err != nil {
 		return err
 	}
@@ -33,7 +40,7 @@ func (s *UserService) Delete(id int) error {
 	return nil
 }
 
-func (s *UserService) GetAll() ([]models.User, error) {
+func (s *UserService) GetAll() ([]models.UserResponse, error) {
 	users, err := s.userRepositories.GetAll()
 	if err != nil {
 		return nil, err

@@ -62,7 +62,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/models.User"
+                                "$ref": "#/definitions/models.UserResponse"
                             }
                         }
                     },
@@ -786,14 +786,11 @@
                 }
             }
         },
-        "models.User": {
+        "models.UserResponse": {
             "type": "object",
             "properties": {
                 "id": {
                     "type": "integer"
-                },
-                "password": {
-                    "type": "string"
                 },
                 "role": {
                     "type": "string"

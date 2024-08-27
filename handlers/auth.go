@@ -4,16 +4,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-type LoginRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
-type RegisterRequest struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 // @Summary Login
 // @Description Authenticate user and return a JWT token
 // @Tags auth

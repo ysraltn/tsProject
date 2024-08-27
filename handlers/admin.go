@@ -67,7 +67,7 @@ func (h *Handler) AddUser(c *fiber.Ctx) error {
 // @Tags admin
 // @Accept  json
 // @Produce  json
-// @Success 200 {array} models.User
+// @Success 200 {array} models.UserResponse
 // @Failure 400 {object} map[string]string
 // @Security BearerAuth
 // @Router /api/admin/user [get]

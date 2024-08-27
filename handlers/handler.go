@@ -23,7 +23,7 @@ func NewHandler(
 }
 
 func (h *Handler) Init() {
-	var jwtSecret = []byte("my_secret_key")
+	var jwtSecret = []byte("guclu_gizli_qXrtyjalk33")
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*", // Allows all origins

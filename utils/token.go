@@ -6,7 +6,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-var jwtKey = []byte("my_secret_key") // Güçlü ve gizli bir anahtar kullanmalısınız.
+var jwtKey = []byte("guclu_gizli_qXrtyjalk33")
 
 type Claims struct {
 	Username string `json:"username"`

@@ -29,11 +29,11 @@ func (r *UserRepository) Delete(id int) error {
 	return err
 }
 
-func (r *UserRepository) GetAll() ([]models.User, error) {
-	var users []models.User
+func (r *UserRepository) GetAll() ([]models.UserResponse, error) {
+	var users []models.UserResponse
 	query := `
-		SELECT * FROM Users`
-	err := r.db.Get(&users, query)
+		SELECT id, username, role FROM Users`
+	err := r.db.Select(&users, query)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func (r *UserRepository) GetAll() ([]models.User, error) {
 func (r *UserRepository) GetByID(id int) (*models.User, error) {
 	var user *models.User
 	query := `
-		SELECT * FROM Users WHERE id=$1`
+		SELECT id, username, role FROM Users WHERE id=$1`
 	err := r.db.Get(&user, query, id)
 	if err != nil {
 		return nil, err

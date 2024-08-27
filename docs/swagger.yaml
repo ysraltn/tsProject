@@ -84,12 +84,10 @@ definitions:
       status:
         type: string
     type: object
-  models.User:
+  models.UserResponse:
     properties:
       id:
         type: integer
-      password:
-        type: string
       role:
         type: string
       username:
@@ -132,7 +130,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/models.User'
+              $ref: '#/definitions/models.UserResponse'
             type: array
         "400":
           description: Bad Request
