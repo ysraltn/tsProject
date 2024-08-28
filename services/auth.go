@@ -9,11 +9,13 @@ import (
 
 type AuthService struct {
 	userRepositories models.IUserRepository
+	logger           models.ILogger
 }
 
-func NewAuthService(userRepositories models.IUserRepository) models.IAuthService {
+func NewAuthService(userRepositories models.IUserRepository, logger models.ILogger) models.IAuthService {
 	return &AuthService{
 		userRepositories: userRepositories,
+		logger:           logger,
 	}
 }
 
@@ -35,6 +37,13 @@ func (s *AuthService) Login(username, password string) (string, string, error) {
 	if err != nil {
 		return "", "", errors.New("token generation error")
 	}
+	s.logger.UserInfoLog(models.UserInfoLog{
+		Message:  "user logged in",
+		Event:    "login",
+		UserID:  user.ID,
+		UserName: user.Username,
+		Role:     user.Role,
+	})
 	return token, user.Role, nil
 }
 
@@ -51,6 +60,12 @@ func (s *AuthService) Register(username, password string) error {
 			Role:     "user",
 		}
 		s.userRepositories.Add(&user)
+		s.logger.UserInfoLog(models.UserInfoLog{
+			Message:  "user registered",
+			Event:    "register",
+			UserName: user.Username,
+			Role:     user.Role,
+		})
 		return nil
 	}
 	return errors.New("username taken")

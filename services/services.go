@@ -15,12 +15,13 @@ func CreateNewServices(
 	productRepositories models.IProductRepository,
 	cycleRepositories models.ICycleRepository,
 	institutionRepositories models.IInstitutionRepository,
+	logger models.ILogger,
 ) *Services {
-	userService := NewUserService(userRepositories)
-	productService := NewProductService(productRepositories)
-	cycleService := NewCycleService(cycleRepositories)
-	authService := NewAuthService(userRepositories)
-	institutionService := NewInstitutionService(institutionRepositories)
+	userService := NewUserService(userRepositories, logger)
+	productService := NewProductService(productRepositories, logger)
+	cycleService := NewCycleService(cycleRepositories, logger)
+	authService := NewAuthService(userRepositories, logger)
+	institutionService := NewInstitutionService(institutionRepositories, logger)
 
 	return &Services{
 		UserService:        userService,

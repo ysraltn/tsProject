@@ -26,4 +26,5 @@ type IUserService interface {
 	Delete(id int) error
 	GetAll() ([]UserResponse, error)
 	GetByID(id int) (*User, error)
+	GetByUsername(username string) (*User, error)
 }
