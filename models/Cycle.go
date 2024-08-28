@@ -19,3 +19,4 @@ type ICycleService interface {
 	GetAll() ([]Cycle, error)
 	GetProductsCyclesByYear(productID, year int) ([]Cycle, error)
 }
+

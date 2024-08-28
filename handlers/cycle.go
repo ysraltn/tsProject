@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"strconv"
-	"tsProject/models"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -19,7 +18,7 @@ import (
 // @Security BearerAuth
 // @Router /api/cycle [post]
 func (h *Handler) AddCycle(c *fiber.Ctx) error {
-	var cycle models.Cycle
+	var cycle Cycle
 	if err := c.BodyParser(&cycle); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "Invalid JSON format",
