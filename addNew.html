@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <title>Product List with Cycles</title>
+    <link rel="stylesheet" href="productstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+  >
+</head>
+<body>
+
+  <h1>Add Update Products</h1>
+
+  <div class="row">
+    <div class="col-2">
+     
+    </div>
+    <div class="col-4 mt-5"> 
+        <div ><input class="input is-focused" type="text" placeholder="Rounded input" />
+      </div>
+    </div>
+    <div class="col-2 mt-5 ml-5">
+      <div class="select">
+        <select class="is-focused">
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </select>
+      </div> 
+    </div>
+    <div class="col-2 mt-5">
+      <button class="button is-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="bi bi-filter"></i></button>
+
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+      </div>
+    </div>
+    <table class="table table-sm table-dark">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Modal</th>
+          <th scope="col">Serial</th>
+          <th scope="col">Institution</th>
+          <th scope="col">Responsible</th>
+          <th scope="col">Owner</th>
+          <th scope="col"> Edit</th>
+
+          
+        </tr>
+      </thead>
+      <tbody id="product-list">
+
+
+
+      </tbody>
+    
+    
+    
+    
+    </table>
+        
+  <!-- <div class="product-list" id="product-list"></div> -->
+
+  
+  <p id="error-message" style="color: red; text-align: center;"></p>
+
+  <script>
+    let currentPage = 1;
+    const itemsPerPage = 20;
+    let totalPages = 1;
+    let allProducts = [];
+
+
+    async function fetchProducts() {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      try {
+        const response = await fetch('http://localhost:3000/api/products', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+
+        console.log(response);
+        if (response.ok) {
+          const productsData = await response.json();
+          displayProducts(productsData.data); // Directly use productsData.data
+        } else {
+          const errorData = await response.json();
+          document.getElementById('error-message').textContent = errorData.error || 'Error fetching products.';
+        }
+      } catch (error) {
+        document.getElementById('error-message').textContent = 'Failed to fetch products. Please try again later.';
+      }
+    }
+
+    async function displayProducts(products) {
+  const productList = document.getElementById('product-list');
+  productList.innerHTML = ''; // Clear the list first
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const productsToShow = products.slice(start, end);
+
+  for (const [index, product] of productsToShow.entries()) {
+    const productRow = document.createElement('tr');
+
+    const currentYear = new Date().getFullYear();
+
+    productRow.innerHTML = `
+      <th scope="row">${start + index + 1}</th>
+      <td>${product.brand}</td>
+      <td>${product.modal}</td>
+      <td>${product.serial}</td>
+      <td>${product.institution_name}</td>
+      <td>${product.responsible}</td>
+      <td>${product.owner}</td>
+      <button onclick="openModel(${product.id})" class="button is-link is-outlined"><i class="bi bi-pencil-square"></i>
+        </button>
+
+
+
+    `;
+
+    productList.appendChild(productRow);
+
+    // Fetch the cycles for the default year (current year)
+    fetchCycles(product.id, currentYear);
+  }
+
+  displayPagination();
+}
+
+
+
+    function updatePagination() {
+  const paginationList = document.querySelector('.pagination-list');
+  paginationList.innerHTML = ''; // Clear the pagination list
+
+  // Previous button
+  const previousButton = document.querySelector('.pagination-previous');
+  if (currentPage === 1) {
+    previousButton.classList.add('is-disabled');
+  } else {
+    previousButton.classList.remove('is-disabled');
+  }
+
+  // Next button
+  const nextButton = document.querySelector('.pagination-next');
+  if (currentPage === totalPages) {
+    nextButton.classList.add('is-disabled');
+  } else {
+    nextButton.classList.remove('is-disabled');
+  }
+
+  // Pagination links
+  for (let i = 1; i <= totalPages; i++) {
+    const pageLink = document.createElement('li');
+    pageLink.innerHTML = `
+      <a href="#" class="pagination-link ${i === currentPage ? 'is-current' : ''}" aria-label="Goto page ${i}">
+        ${i}
+      </a>
+    `;
+    paginationList.appendChild(pageLink);
+  }
+
+  // Add event listeners to the pagination links
+  document.querySelectorAll('.pagination-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedPage = parseInt(this.textContent);
+      if (selectedPage !== currentPage) {
+        currentPage = selectedPage;
+        displayProducts(allProducts);
+      }
+    });
+  });
+
+  // Previous and next buttons
+  previousButton.addEventListener('click', function(e) {
+    if (currentPage > 1) {
+      currentPage--;
+      displayProducts(allProducts);
+    }
+  });
+
+  nextButton.addEventListener('click', function(e) {
+    if (currentPage < totalPages) {
+      currentPage++;
+      displayProducts(allProducts);
+    }
+  });
+}
+
+
+
+
+    function generateYearOptions(currentYear) {
+      let options = '';
+      for (let i = currentYear - 5; i <= currentYear + 5; i++) {
+        options += `<option value="${i}" ${i === currentYear ? 'selected' : ''}>${i}</option>`;
+      }
+      return options;
+    }
+
+    function generateMonthOptions() {
+      let options = '';
+      for (let i = 1; i <= 12; i++) {
+        options += `<option value="${i}">${i}</option>`;
+      }
+      return options;
+    }
+
+    async function fetchCycles(productId, year) {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      try {
+        const response = await fetch(`http://localhost:3000/api/products/${productId}/cycles/${year}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+        });
+
+        if (response.ok) {
+          const cyclesData = await response.json();
+          displayCycles(productId, cyclesData.data); // Ensure cyclesData.data is used to access the array
+        } else {
+          document.getElementById(`cycles-list-${productId}`).textContent = 'No data available.';
+        }
+      } catch (error) {
+        document.getElementById(`cycles-list-${productId}`).textContent = 'Failed to fetch cycles.';
+      }
+    }
+
+    function displayCycles(productId, cycles) {
+      const cyclesList = document.getElementById(`cycles-list-${productId}`);
+      cyclesList.innerHTML = '';
+
+    
+      const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+
+
+      const rowContainer = document.createElement('div');
+      rowContainer.className = 'row';
+
+      months.forEach((month, index) => {
+        const cycle = cycles.find(c => c.month === index + 1);
+
+        const cycleInfo = cycle ? `Cycle: ${cycle.cycle}` : 'No data';
+
+       
+          const cycleItem = document.createElement('div');
+          cycleItem.className = 'col-lg-2 col-md-3 col-sm-4 col-6	 mt-2';
+
+          cycleItem.innerHTML = `
+        <div id="cycles-border" class="p-1  border rounded-1 ">
+          <h6 >${month}:</h6>
+          <p class="">${cycleInfo}</p>
+        </div>
+      `;
+
+        // Her bir cycleItem'ı rowContainer'a ekleyin
+        rowContainer.appendChild(cycleItem);
+      });
+
+      // Tüm rowContainer'ı cyclesList'e ekleyin
+      cyclesList.appendChild(rowContainer);
+    }
+
+
+
+    async function saveCycle(productId) {
+      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+      const year = document.getElementById(`add-year-${productId}`).value;
+      const month = document.getElementById(`add-month-${productId}`).value;
+      const cycle = document.getElementById(`cycle-value-${productId}`).value;
+
+      if (!cycle) {
+        alert('Please enter a cycle value.');
+        return;
+      }
+
+      const payload = {
+        product_id: productId,
+        year: parseInt(year),
+        month: parseInt(month),
+        cycle: parseInt(cycle)
+      };
+
+      try {
+        const response = await fetch('http://localhost:3000/api/cycle', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          alert('Cycle added successfully!');
+          fetchCycles(productId, year); // Refresh cycles after adding a new one
+        } else {
+          const errorData = await response.json();
+          alert('Failed to add cycle: ' + (errorData.error || 'Unknown error'));
+        }
+      } catch (error) {
+        alert('Failed to add cycle: ' + error.message);
+      }
+    }
+
+    // Fetch products when the page loads
+    fetchProducts();
+  </script>
+
+</body>
+
+</html>

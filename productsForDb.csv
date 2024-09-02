@@ -1,0 +1,185 @@
+﻿id;serial;brand;model;institution_id;responsible;owner;status
+1;1033101524;ASP;NX;1;Erhan Atay;Acıbadem;Kurum Deposunda
+2;101120315;ASP;100S;2;Erhan Atay;Prima;Çalışıyor
+3;61198;ASP;100S;3;M.Esat Taşdemir;Kurum;Çalışıyor
+4;101130256;ASP;100S;4;M.Esat Taşdemir;Kurum ;Çalışıyor
+5;110468;ASP;100S;5;M.Esat Taşdemir;Kurum ;Çalışıyor
+6;1042160186;ASP;100NX;6;Merkez;Lotus;Cihaz Yok (Global Geldi)
+7;1041140093;ASP;100NX;7;M.Esat Taşdemir;Kurum;Çalışıyor
+8;1041140101;ASP;100NX;8;M.Esat Taşdemir;Kurum;Çalışıyor
+9;1041150079;ASP;100NX;9;M.Esat Taşdemir;Kurum;Çalışıyor
+10;140228;ASP;100S;10;M.Emin Eke ;Kurum;?
+11;61432;ASP;100S;11;Birol Türk ;Kurum;Çalışıyor
+12;101515;ASP;NX;12;Erhan Atay;Kurum ;Kurum Deposunda
+13;105218;ASP;100S;13;Erhan Atay;Kurum ;Çalışıyor
+14;140221;ASP;100S;14;Birol Türk ;Kurum;Çalışıyor
+15;83280;ASP;100S;15;Merkez;Kurum ;Çalışmıyor
+16;5045210026;ASP;100NX;16;Merkez;Güneş;Çalışıyor 
+17;38358;ASP;100S;17;Birol Türk ;Kurum;Çalışıyor 
+18;962578;ASP;100S;18;Birol Türk ;Kurum;Çalışıyor 
+19;5045230257;ASP;100NX;19;Birol Türk ;Kurum;Çalışıyor
+20;5045230053;ASP;100NX;20;Birol Türk ;Kurum;Çalışıyor
+21;110228;ASP;100S;21;Birol Türk ;Kurum;Çalışıyor 
+22;962419;ASP;100S;22;Birol Türk ;Kurum;Arızalı
+23;1041150172;ASP;100NX;23;Birol Türk ;Kurum;Çalışıyor
+24;1042170185;ASP;100NX;24;Birol Türk ;PRIMA;Çalışıyor 
+25;963252;ASP;100S;25;Birol Türk ;Kurum;Çalışıyor 
+26;94137;ASP;100S;26;Birol Türk ;Kurum;Çalışmıyor
+27;73687;ASP;100S;27;Birol Türk ;Kurum;Çalışıyor
+28;73630;ASP;100S;28;Birol Türk ;Kurum;Çalışıyor 
+29;1041140094;ASP;100NX;29;Birol Türk ;Kurum;Çalışıyor
+30;1041090455;ASP;100NX;30;Birol Türk ;Kurum;Çalışıyor
+31;140034;ASP;100S;31;Birol Türk ;Kurum;Çalışıyor
+32;1041160155;ASP;100NX;32;Birol Türk ;Kurum ;Çalışıyor
+33;38251;ASP;100S;33;Birol Türk ;Kurum;Çalışıyor
+34;1041150194;ASP;100NX;34;Birol Türk ;Kurum;Çalışıyor
+35;1041140019;ASP;100NX;35;Birol Türk ;Kurum;Çalışıyor
+36;1046140129;ASP;100NX;36;Birol Türk ;Kurum;Çalışıyor
+37;150108;ASP;NX;37;Birol Türk ;Kurum;Çalışmıyor 
+38;1045201448;ASP;100NX ;38;M.Emin Eke ;PRIMA;Çalışıyor
+39;1046201397;ASP;100NX;39;M.Emin Eke ;PRIMA;Çalışıyor
+40;70677;ASP;NX;40;M.Emin Eke ;Kurum;Çalışıyor
+41;1042160229;ASP;100NX;41;Merkez;Lotus;Lotus Depoda
+42;1042160196;ASP;100NX;42;Merkez;Lotus;Çalışıyor 
+43;5045220309;ASP;100NX;43;M.Esat Taşdemir;Prima;Çalışıyor
+44;101120314;ASP;100S;44;M.Esat Taşdemir;Hibe ;Çalışmıyor 
+45;5045220010;ASP;100NX;45;Merkez;Güneş;Çalışıyor 
+46;1042170042;ASP;100NX;46;Merkez;Lotus;Çalışıyor
+47;1041180208;ASP;100NX;47;Erhan Atay;Kurum;Çalışıyor
+48;1042170193;ASP;100NX;48;Erhan Atay;Kurum;Çalışıyor
+49;1041170255;ASP;100NX;49;Erhan Atay;Kurum;Çalışıyor
+50;1041170015;ASP;100NX;50;Erhan Atay;Kurum;Çalışıyor
+51;140231;ASP;100S;51;Erhan Atay;Kurum;Çalışıyor
+52;1041180162;ASP;100NX;52;Erhan Atay;Kurum;Çalışıyor
+53;1045211103;ASP;100NX;53;Erhan Atay;Kurum;Çalışıyor
+54;1041140024;ASP;100NX;54;Erhan Atay;Kurum;Çalışıyor
+55;1033142040;ASP;NX;55;Erhan Atay;Kurum;Çalışıyor
+56;1045201332;ASP;100NX;56;Birol Türk ;Kurum;Çalışıyor
+57;140254;ASP;100S;57;M.Emin Eke ;Kurum;Çalışıyor
+58;150624;ASP;NX;58;M.Esat Taşdemir;Kurum;Çalışmıyor 
+59;1041150116;ASP;100NX;59;M.Esat Taşdemir;Kurum;Çalışıyor
+60;1041141039;ASP;100NX;60;M.Esat Taşdemir;Kurum;Çalışıyor
+61;5045230028;ASP;100NX ;61;Birol Türk ;Zenda(Gelecek);Çalışıyor 
+62;110466;ASP;100S;62;Kıvanç Çağırgan;Kurum;Çalışmıyor 
+63;5045230037;ASP;100NX;63;Kıvanç Çağırgan;Üçboyut;Çalışıyor
+64;110229;ASP;100S;64;Kıvanç Çağırgan;Prima;Çalışıyor
+65;61029;ASP;100S;65;Kıvanç Çağırgan;Kurum;Çalışıyor
+66;1042160163;ASP;100NX;66;Merkez;Lotus;Çalışıyor
+67;120302;ASP;100S;67;M.Esat Taşdemir;Hibe ;Çalışıyor 
+68;1042160160;ASP;100NX;68;Erhan Atay;Kurum;Çalışıyor
+69;1042170043;ASP;100NX;69;Merkez;Lotus;?
+70;1041140072;ASP;100NX;70;Merkez;Lotus;Çalışıyor
+71;1033120281;ASP;NX;71;Erhan Atay;Kurum ;Kurum Deposunda
+72;101120316;ASP;100S;72;Birol Türk ;Kurum;Çalışıyor
+73;105214;ASP;100S;73;Birol Türk ;Kurum;Çalışmıyor
+74;110452;ASP;100S;74;Birol Türk ;Kurum;Çalışmıyor 
+75;5045220240;ASP;100NX;75;M.Esat Taşdemir;Durmed;Çalışıyor
+76;1041140088;ASP;100NX;76;M.Esat Taşdemir;PRIMA;Çalışıyor
+77;130228;ASP;100S;77;M.Esat Taşdemir;Kurum;Çalışıyor 
+78;101059505;ASP;100S;78;M.Esat Taşdemir;PRIMA;Çalışıyor
+79;5045220011;ASP;100NX;79;M.Esat Taşdemir;Prima;Çalışıyor
+80;1045211186;ASP;100NX;80;M.Esat Taşdemir;Prima;Çalışıyor
+81;11111111;ASP;NX;81;M.Esat Taşdemir;Prima ;Çalışmıyor 
+82;11111111;ASP;100NX;82;M.Esat Taşdemir;Durmed ;Çalışıyor
+83;1041140039;ASP;100NX;83;M.Esat Taşdemir;Kurum ;Çalışıyor
+84;140259;ASP;100S;84;M.Esat Taşdemir;Kurum;Çalışıyor
+85;1041150115;ASP;100NX;85;M.Esat Taşdemir;Kurum;Çalışmıyor
+86;1042170067;ASP;100NX;86;M.Esat Taşdemir;Kurum;Çalışıyor
+87;73629;ASP;100S;87;M.Esat Taşdemir;Kurum;Çalışıyor
+88;1041170019;ASP;100NX;88;M.Emin Eke ;Kurum;Çalışıyor 
+89;81331;ASP;NX;89;Kıvanç Çağırgan ;Kurum;Çalışmıyor
+90;110454;ASP;100S;90;Kıvanç Çağırgan ;Kurum;Çalışmıyor
+91;130370;ASP;100S;91;Kıvanç Çağırgan ;Kurum;Çalışıyor 
+92;995176;ASP;100S;92;Erhan Atay;Kurum;Çalışıyor 
+93;1041160163;ASP;100NX;93;Erhan Atay;Kurum;Çalışıyor 
+94;140003;ASP;100S;94;Erhan Atay;Kurum;Çalışıyor 
+95;48720;ASP;100S;95;Kıvanç Çağırgan ;Kurum;Çalışıyor
+96;101083441;ASP;100S;96;Kıvanç Çağırgan ;PRIMA;Çalışıyor
+97;105215;ASP;100S;97;Erhan Atay;Kurum;Çalışıyor 
+98;5045220279;ASP;100NX;98;Erhan Atay;PRIMA;Çalışıyor 
+99;140230;ASP;100S;99;Kıvanç Çağırgan ;Kurum;Çalışıyor 
+100;101059486;ASP;100S;100;Erhan Atay;PRIMA;Çalışmıyor
+101;1045211171;ASP;100NX;101;Erhan Atay;PRIMA;Çalışıyor 
+102;1041140084;ASP;100NX;102;Erhan Atay;Kurum;Çalışıyor
+103;94374;ASP;100S;103;Erhan Atay;Kurum ;Çalışıyor
+104;1041180194;ASP;100NX;104;Erhan Atay;Kurum ;Çalışıyor
+105;1045201434;ASP;100NX;105;Erhan Atay;Kurum ;Deaktif
+106;1045201335;ASP;100NX;106;Erhan Atay;Kurum ;Deaktif
+107;1045201334;ASP;100NX;107;Erhan Atay;Kurum ;Deaktif
+108;1045201333;ASP;100NX;108;Erhan Atay;Kurum ;Deaktif
+109;1045201452;ASP;100NX;109;Erhan Atay;Kurum ;Deaktif
+110;101110461;ASP;100S;110;Erhan Atay;Kurum;Çalışıyor
+111;73686;ASP;100S;111;Merkez;Kurum ;Çalışıyor
+112;105068;ASP;100S;112;Erhan Atay;Kurum ;Kurum Deposunda
+113;1045211119;ASP;100NX;113;Merkez;Prima;Çalışıyor
+114;1041170095;ASP;100NX;114;Kıvanç Çağırgan ;Kurum;Çalışıyor
+115;5045220009;ASP;100NX;115;Kıvanç Çağırgan ;Prima;Çalışıyor
+116;5045220007;ASP;100NX;116;Kıvanç Çağırgan ;Prima;Çalışıyor
+117;130385;ASP;100S;117;Erhan Atay;Kurum;Çalışıyor
+118;1045201442;ASP;100NX;118;Erhan Atay;Kurum;Çalışıyor
+119;48604;ASP;100S;119;Erhan Atay;Kurum;Çalışıyor
+120;5045220308;ASP;100NX;120;Merkez;Prima-Güneş;Çalışıyor
+121;1045201004;ASP;100NX;121;Merkez;Güneş;Çalışıyor
+122;5045220062;ASP;100NX;122;Merkez;Güneş;Çalışıyor
+123;5045220277;ASP;100NX;123;Merkez;Prima;Çalışıyor
+124;5045230029;ASP;100NX;124;Merkez;Prima ;Çalışıyor
+125;5045230248;ASP;100NX;125;Kıvanç Çağırgan ;Prima;Çalışıyor
+126;27064;ASP;100S;126;Kıvanç Çağırgan ;Kurum ;Çalışıyor 
+127;1042160164;ASP;100NX;127;Erhan Atay;Kurum ;Çalışıyor
+128;101083325;ASP;100S;128;Erhan Atay;Kurum;Çalışıyor
+129;1042150219;ASP;100NX;129;M.Emin Eke ;Kurum;Çalışıyor
+130;1046201396;ASP;100NX;130;M.Emin Eke ;Prima;Çalışıyor
+131;5046220214;ASP;100NX;131;M.Emin Eke ;Prima;Çalışıyor
+132;59407;ASP;100S;132;M.Emin Eke ;Kurum;Çalışıyor
+133;1041160214;ASP;100NX;133;M.Emin Eke ;Prima;Çalışıyor
+134;101110312;ASP;100S;134;M.Emin Eke ;Kurum ;Çalışıyor
+135;1041170075;ASP;100NX;135;M.Emin Eke ;Prima;Çalışıyor
+136;1045180015;ASP;100NX;136;Merkez ;Güneş ;Çalışıyor
+137;101105082;ASP;100S;137;M.Emin Eke ;Kurum ;Çalışıyor 
+138;140248;ASP;100S;138;M.Esat Taşdemir;Kurum;Çalışıyor 
+139;83282;ASP;100S;139;Birol Türk ;Kurum;Çalışıyor 
+140;1042170045;ASP;100NX;140;Birol Türk ;Kurum;Çalışmıyor
+141;140249;ASP;100S;141;Birol Türk ;Kurum;Çalışıyor 
+142;984089;ASP;100S;142;Birol Türk ;Kurum;Çalışıyor 
+143;101130258;ASP;100S;143;Erhan Atay;PRIMA;Çalışıyor
+144;110456;ASP;100S;144;Birol Türk ;Kurum ;Kurum Deposunda
+145;1041150128;ASP;100NX;145;Merkez;SAS;Çalışıyor
+146;1041160099;ASP;100NX;146;Merkez;SAS;Çalışıyor
+147;1045201009;ASP;100NX;147;Kıvanç Çağırgan ;Kurum;Çalışıyor
+148;1041170010;ASP;100NX;148;Erhan Atay;Kurum;Çalışıyor
+149;83385;ASP;100S;149;Erhan Atay;Kurum;Çalışıyor
+150;1041170013;ASP;100Nx;150;Erhan Atay;Kurum;Çalışıyor
+151;130091;ASP;100S;151;M.Emin Eke ;Kurum;Çalışmıyor
+152;400006;ASP;100S;152;M.Emin Eke ;Kurum;Çalışıyor
+153;1041170009;ASP;100NX;153;M.Emin Eke ;Kurum;Çalışıyor
+154;110459;ASP;100S;154;M.Emin Eke ;Kurum;Çalışıyor
+155;110465;ASP;100S;155;Merkez ;Kurum ;Çalışıyor
+156;5045220063;ASP;100NX;156;M.Emin Eke ;Yapılcan;Çalışıyor
+157;110150;ASP;100S;157;M.Emin Eke ;Kurum;Çalışıyor
+158;120304;ASP;100S;158;M.Emin Eke ;Kurum;Çalışıyor
+159;105206;ASP;100S;159;M.Emin Eke ;Kurum;Çalışıyor
+160;140217;ASP;100S;160;Merkez;Lotus;Çalışıyor
+161;1042170041;ASP;100NX;161;Merkez;Lotus;?
+162;1042160155;ASP;100NX;162;M.Esat Taşdemir;Kurum;Çalışıyor
+163;83302;ASP;100S;163;M.Esat Taşdemir;Kurum;Çalışmıyor
+164;995521;ASP;100S;164;Erhan Atay;Kurum;Çalışıyor 
+165;140256;ASP;100S;165;Erhan Atay;Kurum;Çalışıyor 
+166;120309;ASP;100S;166;Birol Türk ;Kurum;Çalışıyor 
+167;33101363;ASP;NX;167;Birol Türk ;Kurum;Çalışıyor 
+168;1041170016;ASP;100NX;168;Merkez ;Kurum;Çalışıyor 
+169;83281;ASP;100S;169;M.Esat Taşdemir;Kurum;Çalışıyor
+170;83348;ASP;100S;170;M.Esat Taşdemir;Kurum;Çalışmıyor
+171;150105;ASP;NX;171;M.Esat Taşdemir;Kurum;Çalışmıyor
+172;101105063;ASP;100S;172;Birol Türk ;Kurum;Çalışıyor
+173;83004;ASP;100S;173;Birol Türk ;Kurum;Çalışıyor
+174;101105208;ASP;100S;174;Kıvanç Çağırgan ;Prima;Çalışıyor 
+175;1041150197;ASP;100NX;175;Birol Türk ;Kurum ;Çalışıyor 
+176;94096;ASP;100S;176;Birol Türk ;Kurum;Çalışıyor 
+177;59403;ASP;100S;177;Birol Türk ;Kurum;Çalışmıyor 
+178;1041160275;ASP;100NX;178;M.Emin Eke ;Kurum;Çalışıyor 
+179;1042170171;ASP;100NX;179;Birol Türk ;Kurum;Çalışıyor
+180;105102;ASP;100S;180;Birol Türk ;Kurum;Çalışıyor
+181;101105101;ASP;100S;181;Birol Türk ;Kurum;Çalışıyor
+182;1046211115;ASP;100NX;182;M.Emin Eke ;Prima;Çalışıyor 
+183;5045230033;ASP;100NX;183;Kıvanç Çağırgan ;Prima ;Çalışıyor 
+184;120320;ASP;100S;184;Merkez ;Kurum ;Çalışıyor 

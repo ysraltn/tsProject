@@ -4,11 +4,13 @@ import "tsProject/models"
 
 type InstitutionService struct {
 	institutionRepositories models.IInstitutionRepository
+	logger                  models.ILogger
 }
 
-func NewInstitutionService(institutionRepositories models.IInstitutionRepository) models.IInstitutionService {
+func NewInstitutionService(institutionRepositories models.IInstitutionRepository, logger models.ILogger) models.IInstitutionService {
 	return &InstitutionService{
 		institutionRepositories: institutionRepositories,
+		logger:                  logger,
 	}
 }
 
@@ -19,8 +21,21 @@ func (s *InstitutionService) Add(name, city string) error {
 	}
 	err := s.institutionRepositories.Add(institution)
 	if err != nil {
+		s.logger.Error(models.ErrorLog{
+			Message: "error adding institution",
+			Error:   err.Error(),
+			Context: map[string]interface{}{
+				"institution name": institution.Name,
+			},
+		})
 		return err
 	}
+	s.logger.InstitutionInfoLog(models.InstitutionInfoLog{
+		Message:         "institution added",
+		Event:           "institution_added",
+		InstitutionName: institution.Name,
+		City:            institution.City,
+	})
 	return nil
 }
 

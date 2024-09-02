@@ -1,0 +1,185 @@
+id;name;city
+1;Adana Acıbadem Hastanesi;Adana
+2;Adana Acıbadem Hastanesi;Adana
+3;Adana Yüreğir Devlet Hastanesi(Servis Almıyor);Adana
+4;Adana Medline Hastanesi(Servis Almıyor);Adana
+5;Adana Acıbadem Ortopedia Hastanesi;Adana
+6;Adana Sehir Hastanesi;Adana
+7;Cukurova Universitesi Balcalı Hastanesi;Adana
+8;Cukurova Universitesi Balcalı Hastanesi;Adana
+9;Besni Devlet Hastanesi;Adiyaman
+10;Afyon Kocatepe Uni. A.N. Seker E.A. Has.;Afyon
+11;Amasya Sabuncuoglu Serafeddin Devlet Hastanesi;Amasya
+12;Ankara Acıbadem;Ankara
+13;Ankara Acıbadem;Ankara
+14;Ankara Eğitim ve Araştırma Hastanesi;Ankara
+15;Ankara Medicana Hastanesi;Ankara
+16;Ankara Medicana Hastanesi;Ankara
+17;Ankara Uni. Hastanesi Müşterek MSÜ (Cebeci Kampüsü);Ankara
+18;Ankara Uni.Kalp Hastanesi (Cebeci Kampüsü);Ankara
+19;Ankara Üniversitesi Çocuk Hastanesi (Cebeci Kampüsü);Ankara
+20;Ankara Üniversitesi Göz Hastanesi (Cebeci Kampüsü);Ankara
+21;Ankara Uni. Ibni sina Hastanesi ;Ankara
+22;Ankara Uni. Ibni sina Hastanesi ;Ankara
+23;Ankara Üniversitesi İbni Sina;Ankara
+24;Başkent Üniversite Hastanesi;Ankara
+25;Özel Bayındır Hastanesi;Ankara
+26;Gülhane Eğitim ve Araştırma Hastanesi;Ankara
+27;Gülhane Eğitim ve Araştırma Hastanesi;Ankara
+28;Gülhane Eğitim ve Araştırma Hastanesi (Kalp Damar);Ankara
+29;Gülhane Eğitim ve Araştırma Hastanesi;Ankara
+30;Güven Çayyolu Sağlık Kampüsü;Ankara
+31;Hacettepe Universitesi Hastanesi;Ankara
+32;Hacettepe Universitesi Hastanesi;Ankara
+33;Hacettepe Universitesi Hastanesi;Ankara
+34;Özel Güven Hastanesi Kavaklıdere ;Ankara
+35;Polatli Duatepe Devlet Hastanesi;Ankara
+36;Tobb ETÜ Eğitim ve Araştırma Hastanesi;Ankara
+37;Ulucanlar Goz Egitim ve Arastirma Hastanesi;Ankara
+38;Antalya  Eğitim ve araştırma hastanesi ;Antalya
+39;Antalya  Eğitim ve araştırma hastanesi ;Antalya
+40;Ozel Orbit hastanesi;Antalya
+41;Adnan Menderes üni Hastanesi;Aydın
+42;Adnan Menderes üni Hastanesi;Aydın
+43;Batman Eğitim ve Araştırma Hastanesi;Batman
+44;Bingöl Devlet Hastanesi;Bingöl
+45;Bursa Medicana Hastanesi;Bursa
+46;Bursa Sehir Hastanesi;Bursa
+47;Bursa Uludağ Üniversitesi;Bursa
+48;Bursa Uludağ Üniversitesi;Bursa
+49;Bursa Yenişehir Devlet Hastanesi;Bursa
+50;Bursa Yuksek Ihtisas Egitim Arastirma Hastanesi;Bursa
+51;Bursa Yuksek Ihtisas Egitim Arastirma Hastanesi;Bursa
+52;Kestel Devlet Hastanesi;Bursa
+53;Özel Doruk Nilüfer Hastanesi;Bursa
+54;Özel Hayat Hastanesi;Bursa
+55;Retina Göz Bursa;Bursa
+56;Çorum Hitit Üniversitesi Erol Olçok EAH;Çorum
+57;Denizli Devlet Hastanesi;Denizli
+58;Bismil Devlet hastanesi;Diyarbakir
+59;Diyarbakir Gazi Yasargil E. Ve A. Hastanesi;Diyarbakir
+60;Selahaddin Eyyubi Devlet Hastanesi;Diyarbakir
+61;Düzce Ünv.Eğitim Ve Araştırma Hastanesi;Düzce 
+62;Edirne sultan 1. Murat Hastanesi;Edirne
+63;Edirne sultan 1. Murat Hastanesi;Edirne
+64;Keşan Devlet Hastanesi;Edirne
+65;Trakya Universitesi Hastanesi;Edirne
+66;Elazığ Sehir Hastanesi;Elazığ
+67;Fırat Üniversitesi Hastanesi;Elazığ
+68;Mengucek Gazi Egitim Arastirma Hastanesi;Erzincan
+69;Atatürk Üniversite Hastanesi;Erzurum
+70;Erzurum Bolge Egitim Arastirma Hastanesi;Erzurum
+71;Acıbadem Eskişehir Hastanesi;Eskisehir
+72;Özel Gürlife Hastanesi;Eskisehir
+73;Yunus Emre Devlet Hastanesi;Eskisehir
+74;Yunus Emre Devlet Hastanesi;Eskisehir
+75;25 Aralik Devlet Hastanesi;Gaziantep
+76;Bossan Hastanesi Gaziantep;Gaziantep
+77;Defa Life Hastanesi;Gaziantep
+78;Dr. Ersin Arslan Devlet Hastanesi Mücahitler Ek Bina;Gaziantep
+79;G.Antep Ünv.Sahinbey AUH (msü);Gaziantep
+80;G.Antep Ünv.Sahinbey AUH (Gün Hastanesi Göz );Gaziantep
+81;G.Antep Ünv.Sahinbey AUH (Diş Hekimliği);Gaziantep
+82;G.Antep Sanko Ünv.Hastanesi;Gaziantep
+83;Özel NCR Hospital ;Gaziantep
+84;Hakkari Devlet Hastanesi;Hakkari
+85;Yuksekova Devlet Hastanesi;Hakkari
+86;Mustafa Kemal Universitesi Tip Fakultesi Hastanesi;Hatay
+87;Mustafa Kemal Universitesi Tip Fakultesi Hastanesi;Hatay
+88;Suleyman Demirel Uni Tip Fakultesi Hastanesi;Isparta
+89;Bagcilar Egitim Arastirma Hastanesi;İstanbul
+90;Bahat Hospital (sultanciftligi);İstanbul
+91;Beyoglu Goz Egitim Arastirma Hastanesi;İstanbul
+92;Dr. siyami Ersek Hastanesi;İstanbul
+93;Dr. siyami Ersek Hastanesi;İstanbul
+94;Haydarpasa Numune Egitim Arastirma Hastanesi;İstanbul
+95;Istanbul Universitesi Tip Fakultesi Hastanesi ( Capa );İstanbul
+96;Kanuni Sultan Süleyman EA Hastanesi;İstanbul
+97;Marmara Universitesi Pendik Egitim Arastirma Hastanesi;İstanbul
+98;Prof.Süleyman Yalçın Göztepe Sehir Hastanesi ;İstanbul
+99;Ozel Avicenna Hst. ;İstanbul
+100;Marmara Ünv.Pendik Eğitim Araştırma (Maltepe Ek Bina);İstanbul
+101;Umraniye Egitim Arastirma Hastanesi;İstanbul
+102;Umraniye Egitim Arastirma Hastanesi;İstanbul
+103;Amerikan Hastanesi Nişantaşı;İstanbul
+104;Amerikan Hastanesi Nişantaşı;İstanbul
+105;Ataşehir Florence Nightingale;İstanbul
+106;İstanbul Florence Nightingale;İstanbul
+107;İstanbul Florence Nightingale;İstanbul
+108;Kadıköy Florence Nightingale;İstanbul
+109;Gayrettepe Florence Nightingale;İstanbul
+110;Avşar Sağlık Hizmetleri;İstanbul
+111;Bahçelievler Medicana;İstanbul
+112;Bakırköy Acıbadem;İstanbul
+113;Beylikdüzü Medicana;İstanbul
+114;Cerrahpaşa Tıp Fakültesi;İstanbul
+115;İstanbul Eğitim ve Araştırma Hastanesi (Samatya);İstanbul
+116;İstanbul Eğitim ve Araştırma Hastanesi (Samatya);İstanbul
+117;Koç Üniversite Hastanesi;İstanbul
+118;Koç Üniversite Hastanesi;İstanbul
+119;Kozyatağı Acıbadem Hastanesi;İstanbul
+120;Medicana Ataköy;İstanbul
+121;Medicana Ataşehir;İstanbul
+122;Medicana Çamlıca;İstanbul
+123;Medicana Kadıköy;İstanbul
+124;Medicana Zincirlikuyu;İstanbul
+125;Okmeydanı Eğitim ve Araştırma Hastanesi;İstanbul
+126;Özel Etiler Hastanesi;İstanbul
+127;Vetamerikan;İstanbul
+128;Zeynep Kamil Kadın ve Çocuk Hastalıkları EAH;İstanbul
+129;Cigli EA Hastanesi;İzmir
+130;Ege Üniversitesi Tıp Fakültesi Hastanesi;İzmir
+131;Ege Üniversitesi Tıp Fakültesi Hastanesi;İzmir
+132;Izmir Tepecik Egitim Arastirma Hastanesi;İzmir
+133;İEÜ Medical Point İzmir;İzmir
+134;İzmir Ekol Hastanesi;İzmir
+135;İzmir Ekol Hastanesi;İzmir
+136;İzmir Medicana;İzmir
+137;Özel Gözde İzmir Hastanesi;İzmir
+138;Necip Fazil Sehir Hastanesi Yörükoğlu Ek Binası;Kahramanmaras
+139;Karabuk Egitim ve Arastirma Hastanesi;Karabuk
+140;Kastamonu Devlet Hastanesi;Kastamonu
+141;Erciyes Universitesi Tip Fakultesi Hastanesi;Kayseri
+142;Erciyes Universitesi Tip Fakultesi Hastanesi;Kayseri
+143;Kayseri Acıbadem;Kayseri
+144;Kayseri Memorial Hastanesi;Kayseri
+145;Kayseri Sehir Hastanesi;Kayseri
+146;Kayseri Sehir Hastanesi;Kayseri
+147;Kırklareli Eğitim ve Araştırma Hastanesi;Kırklareli
+148;Anadolu Sağlık Merkezi Hastanesi(Johns Hopkins);Kocaeli
+149;Darica Farabi EA Hastanesi;Kocaeli
+150;Gebze Fatih Devlet Hastanesi;Kocaeli
+151;Aksehir Devlet Hastanesi ;Konya
+152;Beyhekim Devlet Hastanesi;Konya
+153;Konya Dr. Ali Kemal Belviranli Kadin Dogum Hastahanesi;Konya
+154;Konya Eregli Devlet Hastanesi;Konya
+155;Konya Medicana Hastanesi;Konya
+156;Konya Necmettin Erbakan Tip Fakultesi Hastaesi;Konya
+157;Konya Necmettin Erbakan Tip Fakultesi Hastanesi;Konya
+158;Konya Numune Hastanesi;Konya
+159;Konya selcuk Universitesi selcuklu Tip Fakultesi Hastanesi;Konya
+160;Evliya Çelebi EAH ;Kütahya
+161;Manisa Sehir Hastanesi;Manisa
+162;Mersin Universitesi Hastanesi;Mersin
+163;Mersin Universitesi Hastanesi;Mersin
+164;Amerikan Hastanesi Bodrum;Muğla
+165;Bodrum Acıbadem Hastanesi;Muğla
+166;Rize Egitim Arastirma Hastanesi;Rize
+167;Büyük Anadolu Hastanesi;Samsun
+168;Samsun Medicana Hastanesi;Samsun
+169;Birecik Devlet Hastanesi;Sanliurfa
+170;Sanliurfa Mehmet Akif Inan Egitim Arastirma Hastanesi;Sanliurfa
+171;Cizre Devlet Hastanesi;Sirnak
+172;Cumhuriyet Üniversitesi A. ve Uyg. Hastanesi;Sivas
+173;Sivas Numune Hastanesi(Izzettin Keykavus Hast);Sivas
+174;Çerkezköy Devlet Hastanesi;Tekirdağ
+175;Tokat Devlet Hastanesi;Tokat
+176;Tokat Devlet Hastanesi;Tokat
+177;Karadeniz Teknik Universitesi M.F Hastanesi;Trabzon
+178;Uşak Eğitim Araştırma Hastanesi;Uşak
+179;Yozgat Sorgun Hastanesi;Yozgat
+180;Karaelmas Universitesi Hastanesi;Zonguldak
+181;Zonguldak Level Hastanesi;Zonguldak
+182;Antalya Sehir Hastanesi;Antalya
+183;Bakırköy Sadi Konuk EAH;İstanbul
+184;Sişli Kolan International Hospital;İstanbul

@@ -11,129 +11,286 @@
     crossorigin="anonymous"></script>
   <title>Product List with Cycles</title>
   <link rel="stylesheet" href="productstyle.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+>
 </head>
 
 <body>
 
   <h1>Product List with Cycles</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+       
+      </div>
+      <div class="col-4 mt-5"> 
+          <div ><input class="input is-focused rounded-pill" type="text" placeholder="Rounded input" />
+        </div>
+      </div>
+      <div class="col-2 mt-5 ml-5">
+        <div class="select">
+          <select class="is-focused">
+            <option>Select dropdown</option>
+            <option>With options</option>
+          </select>
+        </div> 
+      </div>
+      <div class="col-2 mt-5">
+        <button class="button is-link" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="bi bi-filter"></i></button>
+
+        <div class="offcanvas offcanvas-start bg-dark" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div class="offcanvas-header">
+            <h3 class="offcanvas-title " id="offcanvasWithBothOptionsLabel">Filter</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <p>Model</p>
+            <div class="select is-rounded">
+              <select placeholder="Model">
+                <option>-</option>
+                <option>100S</option>
+                <option>NX</option>
+                <option>100NX</option>
+              </select>
+              <p>Status</p>
+              <select placeholder="Model">
+                <option>-</option>
+                <option>Kurum Deposunda</option>
+                <option>Cihaz Yok (Global Geldi)</option>
+                <option>Ã‡alÄ±ÅŸÄ±yor</option>
+              </select>
+              <label class="checkbox mt-3">
+                <input type="checkbox" />
+                <P>Show only products with data</P>
+              </label>
+            </div>
+            
+          </div>
+          <button class="button is-link is-rounded">Confirm</button>
+
+        </div>
+        
+      </div>
+     
   <div class="product-list" id="product-list"></div>
+ 
   <p id="error-message" style="color: red; text-align: center;"></p>
 
-
-
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous is-disabled" title="This is the first page"
+      >Previous</a
+    >
+    <a href="#" class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li>
+        <a
+          class="pagination-link is-current"
+          aria-label="Page 1"
+          aria-current="page"
+          >1</a
+        >
+      </li>
+      <li>
+        <a href="#" class="pagination-link" aria-label="Goto page 2">2</a>
+      </li>
+      <li>
+        <a href="#" class="pagination-link" aria-label="Goto page 3">3</a>
+      </li>
+    </ul>
+  </nav>
+  
 
 
   <script>
-    async function fetchProducts() {
-      const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
-      try {
-        const response = await fetch('http://localhost:3000/api/products', {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-        });
+let currentPage = 1;
+const itemsPerPage = 20;
+let totalPages = 1;
+let allProducts = [];
 
-        if (response.ok) {
-          const productsData = await response.json();
-          displayProducts(productsData.data); // Directly use productsData.data
-        } else {
-          const errorData = await response.json();
-          document.getElementById('error-message').textContent = errorData.error || 'Error fetching products.';
-        }
-      } catch (error) {
-        document.getElementById('error-message').textContent = 'Failed to fetch products. Please try again later.';
-      }
+async function fetchProducts() {
+  const token = localStorage.getItem('token'); // Retrieve JWT from localStorage
+  try {
+    const response = await fetch('http://localhost:3000/api/products', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+    });
+
+    if (response.ok) {
+      const productsData = await response.json();
+      allProducts = productsData.data; // Store all products
+      totalPages = Math.ceil(allProducts.length / itemsPerPage);
+      displayProducts(); // Display products
+    } else {
+      const errorData = await response.json();
+      document.getElementById('error-message').textContent = errorData.error || 'Error fetching products.';
     }
+  } catch (error) {
+    document.getElementById('error-message').textContent = 'Failed to fetch products. Please try again later.';
+  }
+}
 
-    async function displayProducts(products) {
-      const productList = document.getElementById('product-list');
-      productList.innerHTML = ''; // Clear the list first
+function displayProducts() {
+  const productList = document.getElementById('product-list');
+  productList.innerHTML = ''; // Clear the list first
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const productsToShow = allProducts.slice(start, end);
 
-      for (const product of products) {
-        const productItem = document.createElement('div');
-        productItem.className = 'product-item';
+  for (const product of productsToShow) {
+    const productItem = document.createElement('div');
+    productItem.className = 'product-item';
 
-        const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
 
-        productItem.innerHTML = `
-          <div class="container" id="product-card">
-  <div class="row">
-    <!-- Start Card -->
-    <div class="col-md-4">
-      <div class="card border-dark mb-3" style="background-color: rgb(38, 41, 60);">
-        <div class="card-header">
-          <strong>Brand:</strong> ${product.brand}
-        </div>
-        <div class="card-body">
-          <ul>
-            <li><strong>Model:</strong> ${product.model}</li>
-            <li><strong>Serial:</strong> ${product.serial}</li>
-            <li><strong>Institution: </strong>${product.institution_name}</li>
-            ${product.responsible ? `<li><strong>Responsible: </strong> ${product.responsible}</li>` : ''}
-            ${product.owner ? `<li><strong>Owner:</strong> ${product.owner}</li>` : ''}
-            <li><strong>Status:</strong> ${product.status}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-12">
-          <div class="cycle-info">
-            <label for="year-select-${product.id}">Select Year:</label>
-            <select id="year-select-${product.id}" class="rounded-pill" name="years" onchange="fetchCycles(${product.id}, this.value)">
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-            </select>
+    productItem.innerHTML = `
+      <div class="container" id="product-card">
+        <div class="row">
+          <!-- Start Card -->
+          <div class="col-md-4">
+            <div class="card border-dark mb-3" style="background-color: rgb(38, 41, 60);">
+              <div class="card-header">
+                <strong>Brand:</strong> ${product.brand}
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li><strong>Model:</strong> ${product.model}</li>
+                  <li><strong>Serial:</strong> ${product.serial}</li>
+                  <li><strong>Institution: </strong>${product.institution_name}</li>
+                  ${product.responsible ? `<li><strong>Responsible: </strong> ${product.responsible}</li>` : ''}
+                  ${product.owner ? `<li><strong>Owner:</strong> ${product.owner}</li>` : ''}
+                  <li><strong>Status:</strong> ${product.status}</li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-12">
+                <div class="cycle-info">
+                  <label for="year-select-${product.id}">Select Year:</label>
+                  <select id="year-select-${product.id}" class="bg-dark has-text-primary-95 rounded-pill" name="years" onchange="fetchCycles(${product.id}, this.value)">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                  </select>
+                </div>
+              </div>
 
-        <div class="col-12">
-          <div id="cycles-list-border" class="text-center mt-3">
-            <div class="cycles-list" id="cycles-list-${product.id}">
-              <!-- Cycles data will be dynamically inserted here -->
+              <div class="col-12">
+                <div id="cycles-list-border" class=" text-center mt-3">
+                  <div class="cycles-list" id="cycles-list-${product.id}">
+                    <!-- Cycles data will be dynamically inserted here -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="add-cycle mt-3">
+                    <div class="row">
+                        <div class="col-2">
+                          <label for="add-year-${product.id}">Year:</label>
+                          <select id="add-year-${product.id}" class="bg-dark has-text-primary-95 rounded-pill">
+                            ${generateYearOptions(currentYear)}
+                          </select>
+                        </div>
+                        <div class="col-2">
+                          <label for="add-month-${product.id}">Month:</label>
+                          <select id="add-month-${product.id}" class="bg-dark has-text-primary-95 rounded-pill">
+                            ${generateMonthOptions()}
+                          </select>
+                        </div>
+                        <div class="col-6"> 
+                          <label for="cycle-value-${product.id}">Cycle:</label>
+                          <div class="control">
+                            <input type="number" id="cycle-value-${product.id}" class="input is-focused rounded-pill" placeholder="Enter cycle value">
+                          </div>
+                          <button onclick="saveCycle(${product.id})" class="button is-focused is-small rounded-pill mt-2">Save Cycle</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="col-12">
-          <div class="add-cycle mt-3">
-            <label for="add-year-${product.id}">Year:</label>
-            <select id="add-year-${product.id}" class="rounded-pill">
-              ${generateYearOptions(currentYear)}
-            </select>
-
-            <label for="add-month-${product.id}">Month:</label>
-            <select id="add-month-${product.id}" class="rounded-pill">
-              ${generateMonthOptions()}
-            </select>
-
-            <label for="cycle-value-${product.id}">Cycle:</label>
-            <input type="number" id="cycle-value-${product.id}" class="rounded-pill" placeholder="Enter cycle value">
-
-            <button onclick="saveCycle(${product.id})" class="btn btn-outline-light rounded-pill mt-2">Save Cycle</button>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
-</div>
+    `;
+
+    productList.appendChild(productItem);
+
+    // Fetch the cycles for the default year (current year)
+    fetchCycles(product.id, currentYear);
+  }
+
+  displayPagination();
+}
+
+function displayPagination() {
+  const paginationList = document.querySelector('.pagination-list');
+  paginationList.innerHTML = ''; // Clear the pagination list
+
+  for (let i = 1; i <= totalPages; i++) {
+    const paginationItem = document.createElement('li');
+    const paginationLink = document.createElement('a');
+    paginationLink.className = `pagination-link ${i === currentPage ? 'is-current' : ''}`;
+    paginationLink.textContent = i;
+    paginationLink.href = "#";
+    paginationLink.setAttribute('aria-label', `Goto page ${i}`);
+    paginationLink.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default anchor behavior
+      currentPage = i;
+      displayProducts();
+    });
+    paginationItem.appendChild(paginationLink);
+    paginationList.appendChild(paginationItem);
+  }
+
+  const prevButton = document.querySelector('.pagination-previous');
+  const nextButton = document.querySelector('.pagination-next');
+
+  prevButton.classList.toggle('is-disabled', currentPage === 1);
+  nextButton.classList.toggle('is-disabled', currentPage === totalPages);
+
+  prevButton.removeEventListener('click', handlePrevClick); // Remove previous listener to avoid duplication
+  nextButton.removeEventListener('click', handleNextClick);
+
+  prevButton.addEventListener('click', handlePrevClick);
+  nextButton.addEventListener('click', handleNextClick);
+}
+
+function handlePrevClick(e) {
+  e.preventDefault(); // Prevent default anchor behavior
+  if (currentPage > 1) {
+    currentPage--;
+    displayProducts();
+  }
+}
+
+function handleNextClick(e) {
+  e.preventDefault(); // Prevent default anchor behavior
+  if (currentPage < totalPages) {
+    currentPage++;
+    displayProducts();
+  }
+}
+
+// Call fetchProducts to start fetching and displaying products
+fetchProducts();
 
 
-                `;
+// Call fetchProducts to start fetching and displaying products
+fetchProducts();
 
-        productList.appendChild(productItem);
 
-        // Fetch the cycles for the default year (current year)
-        fetchCycles(product.id, currentYear);
-      }
-    }
 
     function generateYearOptions(currentYear) {
       let options = '';
@@ -195,10 +352,10 @@
 
        
           const cycleItem = document.createElement('div');
-          cycleItem.className = 'col-lg-2 col-md-3 col-sm-4 mt-2';
+          cycleItem.className = 'col-lg-2 col-md-3 col-sm-4 col-6	 mt-2';
 
           cycleItem.innerHTML = `
-        <div  class="p-1  border rounded-1 ">
+        <div id="cycles-border" class="p-1  border rounded-1 ">
           <h6 >${month}:</h6>
           <p class="">${cycleInfo}</p>
         </div>
@@ -233,7 +390,7 @@
       };
 
       try {
-        const response = await fetch('http://localhost:3000/api/cycles', {
+        const response = await fetch('http://localhost:3000/api/cycle', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
