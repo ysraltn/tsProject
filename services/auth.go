@@ -19,35 +19,35 @@ func NewAuthService(userRepositories models.IUserRepository, logger models.ILogg
 	}
 }
 
-func (s *AuthService) Login(username, password string) (string, string, error) {
+func (s *AuthService) Login(username, password string) (int, string, string, error) {
 	user, err := s.userRepositories.GetByUsername(username)
 	if errors.Is(err, sql.ErrNoRows) {
-		return "", "", errors.New("user not found")
+		return 0, "", "", errors.New("user not found")
 	}
 	if err != nil {
-		return "", "", err
+		return 0, "", "", err
 	}
 	if user == nil {
-		return "", "", errors.New("user not found")
+		return 0, "", "", errors.New("user not found")
 	}
 	if !utils.CheckPasswordHash(password, user.Password) {
-		return "", "", errors.New("invalid credentials")
+		return 0, "", "", errors.New("invalid credentials")
 	}
-	token, err := utils.GenerateJWT(username, user.Role)
+	token, err := utils.GenerateJWT(user.ID, username, user.Role)
 	if err != nil {
-		return "", "", errors.New("token generation error")
+		return 0, "", "", errors.New("token generation error")
 	}
 	s.logger.UserInfoLog(models.UserInfoLog{
 		Message:  "user logged in",
 		Event:    "login",
-		UserID:  user.ID,
+		UserID:   user.ID,
 		UserName: user.Username,
 		Role:     user.Role,
 	})
-	return token, user.Role, nil
+	return user.ID, token, user.Role, nil
 }
 
-func (s *AuthService) Register(username, password string) error {
+func (s *AuthService) Register(username, password, name, surname string) error {
 	_, err := s.userRepositories.GetByUsername(username)
 	if errors.Is(err, sql.ErrNoRows) {
 		hashedPassword, err := utils.HashPassword(password)
@@ -58,6 +58,8 @@ func (s *AuthService) Register(username, password string) error {
 			Username: username,
 			Password: hashedPassword,
 			Role:     "user",
+			Name:     name,
+			Surname:  surname,
 		}
 		s.userRepositories.Add(&user)
 		s.logger.UserInfoLog(models.UserInfoLog{

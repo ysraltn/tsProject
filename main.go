@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"tsProject/config"
 	"tsProject/database"
@@ -10,6 +11,7 @@ import (
 	"tsProject/models"
 	"tsProject/repositories"
 	"tsProject/services"
+	"tsProject/utils"
 )
 
 // @title Fiber API Documentation
@@ -39,5 +41,15 @@ func main() {
 	defer db.Close()
 	services := services.CreateNewServices(repositories.NewUserRepository(db), repositories.NewProductRepository(db), repositories.NewCycleRepository(db), repositories.NewInstitutionRepository(db), logger)
 	handler := handlers.NewHandler(*services)
+
+	hashed, err := utils.HashPassword("123456")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(hashed)
+	services.UserService.Add("admin", "123456", "admin", "admin", "admin")
+	ok := utils.CheckPasswordHash("123456", hashed)
+	fmt.Println(ok)
+
 	handler.Init()
 }

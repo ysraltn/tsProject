@@ -30,7 +30,7 @@ type CycleInfoLog struct {
 	ProductID int
 	Year      int
 	Month     int
-	CycleNo   int
+	CycleCount   int
 }
 type InstitutionInfoLog struct {
 	Message         string
@@ -46,9 +46,9 @@ type ProductInfoLog struct {
 	ProductName   string
 	ProductSerial string
 	InstitutionID int
-	Owner         string
+	OwnerID         int
 	Status        string
-	Responsible   string
+	ResponsibleID   int
 }
 
 type UserInfoLog struct {

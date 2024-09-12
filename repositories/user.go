@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"fmt"
 	"tsProject/models"
 
 	"github.com/jmoiron/sqlx"
@@ -16,8 +17,8 @@ func NewUserRepository(db *sqlx.DB) *UserRepository {
 
 func (r *UserRepository) Add(user *models.User) error {
 	query := `
-		INSERT INTO Users (username, password, role) 
-        VALUES (:username, :password, :role)`
+		INSERT INTO users (username, password, role, name, surname) 
+        VALUES (:username, :password, :role, :name, :surname)`
 	_, err := r.db.NamedExec(query, user)
 	return err
 }
@@ -32,7 +33,7 @@ func (r *UserRepository) Delete(id int) error {
 func (r *UserRepository) GetAll() ([]models.UserResponse, error) {
 	var users []models.UserResponse
 	query := `
-		SELECT id, username, role FROM Users`
+		SELECT id, username, role, name, surname FROM users`
 	err := r.db.Select(&users, query)
 	if err != nil {
 		return nil, err
@@ -43,7 +44,7 @@ func (r *UserRepository) GetAll() ([]models.UserResponse, error) {
 func (r *UserRepository) GetByID(id int) (*models.User, error) {
 	var user *models.User
 	query := `
-		SELECT id, username, role FROM Users WHERE id=$1`
+		SELECT id, username, role, name, surname FROM users WHERE id=$1`
 	err := r.db.Get(&user, query, id)
 	if err != nil {
 		return nil, err
@@ -54,12 +55,25 @@ func (r *UserRepository) GetByID(id int) (*models.User, error) {
 
 func (r *UserRepository) GetByUsername(username string) (*models.User, error) {
 	var user models.User
+	fmt.Println(username)
 	query := `
-		SELECT * FROM Users WHERE username=$1`
+		SELECT id, username, password, role, name, surname FROM users WHERE username=$1`
 	err := r.db.Get(&user, query, username)
+	fmt.Println(user)
 	if err != nil {
 		return nil, err
 	}
 	return &user, nil
 
+}
+
+func (r *UserRepository) GetAllForUsers() ([]models.UserForUsers, error) {
+	var users []models.UserForUsers
+	query := `
+		SELECT id, name, surname FROM users`
+	err := r.db.Select(&users, query)
+	if err != nil {
+		return nil, err
+	}
+	return users, nil
 }

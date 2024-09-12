@@ -38,7 +38,7 @@ func NewLogger(logFile string) *Logger {
 // Info, InfoLog struct kullanarak loglama yapar
 func (l *Logger) Info(log models.InfoLog) {
 	l.logger.WithFields(logrus.Fields{
-		"user_name":    log.UserName,
+		"username":    log.UserName,
 		"user_id":      log.UserID,
 		"event":        log.Event,
 		"product_id":   log.ProductID,
@@ -68,7 +68,7 @@ func (l *Logger) CycleInfoLog(log models.CycleInfoLog) {
 		"product_id": log.ProductID,
 		"year":       log.Year,
 		"month":      log.Month,
-		"cycle_no":   log.CycleNo,
+		"cycle_count":   log.CycleCount,
 	}).Info(log.Message)
 }
 
@@ -87,9 +87,9 @@ func (l *Logger) ProductInfoLog(log models.ProductInfoLog) {
 		"product_name":   log.ProductName,
 		"product_serial": log.ProductSerial,
 		"institution_id": log.InstitutionID,
-		"owner":          log.Owner,
+		"owner":          log.OwnerID,
 		"status":         log.Status,
-		"responsible":    log.Responsible,
+		"responsible":    log.ResponsibleID,
 	}).Info(log.Message)
 }
 
@@ -97,7 +97,7 @@ func (l *Logger) UserInfoLog(log models.UserInfoLog) {
 	l.logger.WithFields(logrus.Fields{
 		"event":     log.Event,
 		"user_id":   log.UserID,
-		"user_name": log.UserName,
+		"username": log.UserName,
 		"role":      log.Role,
 	}).Info(log.Message)
 }

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -25,11 +26,15 @@ func (h *Handler) AddCycle(c *fiber.Ctx) error {
 			"error":   err.Error(),
 		})
 	}
+	fmt.Println(cycle.ProductID)
+	fmt.Println(cycle.Year)
+	fmt.Println(cycle.Month)
+	fmt.Println(cycle.CycleCount)
 	err := h.services.CycleService.Add(
 		cycle.ProductID,
 		cycle.Year,
 		cycle.Month,
-		cycle.CycleNo,
+		cycle.CycleCount,
 	)
 	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{

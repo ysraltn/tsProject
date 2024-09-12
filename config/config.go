@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -14,6 +13,7 @@ var (
 	DBUser     string
 	DBPassword string
 	DBName     string
+	JWTKey     []byte
 )
 
 func Load() {
@@ -29,6 +29,8 @@ func Load() {
 	DBUser = os.Getenv("DB_USER")
 	DBPassword = os.Getenv("DB_PASSWORD")
 	DBName = os.Getenv("DB_NAME")
-	fmt.Println("ortam degiskenleri")
-	fmt.Println(DBHost, DBPort, DBUser)
+	Secret := os.Getenv("SECRET")
+	JWTKey = []byte(Secret)
+	// fmt.Println("ortam degiskenleri")
+	// fmt.Println(DBHost, DBPort, DBUser, JWTKey)
 }

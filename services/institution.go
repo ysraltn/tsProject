@@ -14,6 +14,14 @@ func NewInstitutionService(institutionRepositories models.IInstitutionRepository
 	}
 }
 
+func (s *InstitutionService) GetAll() ([]models.Institution, error) {
+	institutions, err := s.institutionRepositories.GetAll()
+	if err != nil {
+		return nil, err
+	}
+	return institutions, nil
+}
+
 func (s *InstitutionService) Add(name, city string) error {
 	institution := &models.Institution{
 		Name: name,

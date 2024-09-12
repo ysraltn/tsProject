@@ -193,6 +193,44 @@ const docTemplate = `{
             }
         },
         "/api/institution": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get all Institutions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "institutions"
+                ],
+                "summary": "Get All Institutions",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.Institution"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
             "post": {
                 "security": [
                     {
@@ -408,6 +446,164 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/products/filter": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Filter products by given filter",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "products"
+                ],
+                "summary": "Filter Products",
+                "parameters": [
+                    {
+                        "description": "Product filter",
+                        "name": "filter",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.ProductFilter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ProductWithInstitutionAndCycle"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid JSON format",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to fetch products",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/filterbyinsid/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get products by institution ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "products"
+                ],
+                "summary": "Filter Products by Institution ID",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Institution ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ProductWithInstitutionAndCycle"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid institution ID",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to fetch filtered products",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/yok": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get all products with institution and cycle",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "products"
+                ],
+                "summary": "Get All Products with institution and cycle",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ProductWithInstitutionAndCycle"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/products/{id}": {
             "get": {
                 "security": [
@@ -569,6 +765,147 @@ const docTemplate = `{
                 }
             }
         },
+        "/api/profile": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get the profile information of the authenticated user",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Get User profile",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/profile/institutions": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get products assigned to the current user based on their JWT token",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Get Assigned Products",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.ProductWithInstitutionAndCycle"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid user ID",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failed to fetch assigned products",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/profile/user": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get users names for select input",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "profile"
+                ],
+                "summary": "Get Users Names",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.UserForUsers"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/login": {
             "post": {
                 "description": "Authenticate user and return a JWT token",
@@ -666,10 +1003,16 @@ const docTemplate = `{
         "handlers.AddUserRequest": {
             "type": "object",
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "password": {
                     "type": "string"
                 },
                 "role": {
+                    "type": "string"
+                },
+                "surname": {
                     "type": "string"
                 },
                 "username": {
@@ -691,7 +1034,13 @@ const docTemplate = `{
         "handlers.RegisterRequest": {
             "type": "object",
             "properties": {
+                "name": {
+                    "type": "string"
+                },
                 "password": {
+                    "type": "string"
+                },
+                "surname": {
                     "type": "string"
                 },
                 "username": {
@@ -702,7 +1051,7 @@ const docTemplate = `{
         "models.Cycle": {
             "type": "object",
             "properties": {
-                "cycle": {
+                "cycle_count": {
                     "type": "integer"
                 },
                 "id": {
@@ -712,6 +1061,20 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "product_id": {
+                    "type": "integer"
+                },
+                "year": {
+                    "type": "integer"
+                }
+            }
+        },
+        "models.CycleForArray": {
+            "type": "object",
+            "properties": {
+                "cycle_count": {
+                    "type": "integer"
+                },
+                "month": {
                     "type": "integer"
                 },
                 "year": {
@@ -748,16 +1111,30 @@ const docTemplate = `{
                 "model": {
                     "type": "string"
                 },
-                "owner": {
-                    "type": "string"
+                "owner_id": {
+                    "type": "integer"
                 },
-                "responsible": {
-                    "type": "string"
+                "responsible_id": {
+                    "type": "integer"
                 },
                 "serial": {
                     "type": "string"
                 },
                 "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ProductFilter": {
+            "type": "object",
+            "properties": {
+                "institution_city": {
+                    "type": "string"
+                },
+                "institution_name": {
+                    "type": "string"
+                },
+                "product_model": {
                     "type": "string"
                 }
             }
@@ -780,16 +1157,63 @@ const docTemplate = `{
                 "model": {
                     "type": "string"
                 },
-                "owner": {
-                    "type": "string"
+                "owner_id": {
+                    "type": "integer"
                 },
-                "responsible": {
-                    "type": "string"
+                "responsible_id": {
+                    "type": "integer"
                 },
                 "serial": {
                     "type": "string"
                 },
                 "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.ProductWithInstitutionAndCycle": {
+            "type": "object",
+            "properties": {
+                "cycles": {
+                    "description": "Use the custom type directly for JSON scanning",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.CycleForArray"
+                    }
+                },
+                "institution_city": {
+                    "type": "string"
+                },
+                "institution_id": {
+                    "type": "integer"
+                },
+                "institution_name": {
+                    "type": "string"
+                },
+                "product_brand": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "integer"
+                },
+                "product_model": {
+                    "type": "string"
+                },
+                "product_serial": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.UserForUsers": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "surname": {
                     "type": "string"
                 }
             }
@@ -800,7 +1224,13 @@ const docTemplate = `{
                 "id": {
                     "type": "integer"
                 },
+                "name": {
+                    "type": "string"
+                },
                 "role": {
+                    "type": "string"
+                },
+                "surname": {
                     "type": "string"
                 },
                 "username": {

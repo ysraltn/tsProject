@@ -1,6 +1,8 @@
 package services
 
 import (
+	"database/sql"
+	"errors"
 	"tsProject/models"
 	"tsProject/utils"
 )
@@ -17,36 +19,43 @@ func NewUserService(userRepositories models.IUserRepository, logger models.ILogg
 	}
 }
 
-func (s *UserService) Add(username, password, role string) error {
-	hashedPassword, err := utils.HashPassword(password)
-	if err != nil {
-		return err
-	}
-	user := &models.User{
-		Username: username,
-		Password: hashedPassword,
-		Role:     role,
-	}
-	err = s.userRepositories.Add(user)
-	if err != nil {
-		s.logger.Error(models.ErrorLog{
-			Message: "error adding user",
-			Error:   err.Error(),
-			Context: map[string]interface{}{
-				"username": username,
-				"role":     role,
-			},
+func (s *UserService) Add(username, password, role, name, surname string) error {
+	_, err := s.userRepositories.GetByUsername(username)
+	if errors.Is(err, sql.ErrNoRows) {
+		hashedPassword, err := utils.HashPassword(password)
+		if err != nil {
+			return err
+		}
+		user := &models.User{
+			Username: username,
+			Password: hashedPassword,
+			Role:     role,
+			Name:     name,
+			Surname:  surname,
+		}
+		err = s.userRepositories.Add(user)
+		if err != nil {
+			s.logger.Error(models.ErrorLog{
+				Message: "error adding user",
+				Error:   err.Error(),
+				Context: map[string]interface{}{
+					"username": username,
+					"role":     role,
+				},
+			})
+			return err
+		}
+		s.logger.UserInfoLog(models.UserInfoLog{
+			Message:  "user added",
+			Event:    "user_added",
+			UserID:   user.ID,
+			UserName: user.Username,
+			Role:     user.Role,
 		})
-		return err
+		return nil
+
 	}
-	s.logger.UserInfoLog(models.UserInfoLog{
-		Message:  "user added",
-		Event:    "user_added",
-		UserID:   user.ID,
-		UserName: user.Username,
-		Role:     user.Role,
-	})
-	return nil
+	return errors.New("username taken")
 }
 
 func (s *UserService) Delete(id int) error {
@@ -93,4 +102,12 @@ func (s *UserService) GetByUsername(username string) (*models.User, error) {
 		return nil, err
 	}
 	return user, nil
+}
+
+func (s *UserService) GetAllForUsers() ([]models.UserForUsers, error) {
+	users, err := s.userRepositories.GetAllForUsers()
+	if err != nil {
+		return nil, err
+	}
+	return users, nil
 }

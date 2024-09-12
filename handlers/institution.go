@@ -2,10 +2,14 @@ package handlers
 
 import (
 	"strconv"
-	"tsProject/models"
 
 	"github.com/gofiber/fiber/v2"
 )
+
+type AddInstitutionRequest struct {
+	Name string `json:"name" db:"name"`
+	City string `json:"city" db:"city"`
+}
 
 // @Summary Add Institution
 // @Description Register an institution
@@ -19,7 +23,7 @@ import (
 // @Security BearerAuth
 // @Router /api/institution [post]
 func (h *Handler) AddInstitution(c *fiber.Ctx) error {
-	var institution models.Institution
+	var institution AddInstitutionRequest
 	if err := c.BodyParser(&institution); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "Invalid JSON format",
@@ -74,4 +78,24 @@ func (h *Handler) GetInstitutionByID(c *fiber.Ctx) error {
 
 	// Kurum bulunduysa, JSON olarak döndür
 	return Response(c, 200, "Institution fetched successfully", institution)
+}
+
+// @Summary Get All Institutions
+// @Description Get all Institutions
+// @Tags institutions
+// @Accept  json
+// @Produce  json
+// @Success 200 {array} models.Institution
+// @Failure 400 {object} map[string]string
+// @Security BearerAuth
+// @Router /api/institution [get]
+func (h *Handler) GetAllInstitutions(c *fiber.Ctx) error {
+	institutions, err := h.services.InstitutionService.GetAll()
+	if err != nil {
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Failed to fetch institutions",
+			"error":   err.Error(),
+		})
+	}
+	return Response(c, 200, "Institutions fetched successfully", institutions)
 }

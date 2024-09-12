@@ -14,12 +14,12 @@ func NewCycleService(cycleRepositories models.ICycleRepository, logger models.IL
 	}
 }
 
-func (s *CycleService) Add(productID, year, month, cycleNo int) error {
+func (s *CycleService) Add(productID, year, month, cycleCount int) error {
 	cycle := &models.Cycle{
 		ProductID: productID,
 		Year:      year,
 		Month:     month,
-		CycleNo:   cycleNo,
+		CycleCount:   cycleCount,
 	}
 	err := s.cycleRepositories.Add(cycle)
 	if err != nil {
@@ -30,7 +30,7 @@ func (s *CycleService) Add(productID, year, month, cycleNo int) error {
 				"product_id": productID,
 				"year":       year,
 				"month":      month,
-				"cycle_no":   cycleNo,
+				"cycle_count":   cycleCount,
 			},
 		})
 		return err
@@ -41,7 +41,7 @@ func (s *CycleService) Add(productID, year, month, cycleNo int) error {
 		ProductID: productID,
 		Year:      year,
 		Month:     month,
-		CycleNo:   cycleNo,
+		CycleCount:   cycleCount,
 	})
 	return nil
 }

@@ -1,11 +1,10 @@
 package models
 
 type Cycle struct {
-	ID        int `json:"id" db:"id"`
-	ProductID int `json:"product_id" db:"product_id"`
-	Year      int `json:"year" db:"year"`
-	Month     int `json:"month" db:"month"`
-	CycleNo   int `json:"cycle,omitempty" db:"cycle"`
+	ProductID  int `json:"product_id" db:"product_id"`
+	Year       int `json:"year" db:"year"`
+	Month      int `json:"month" db:"month"`
+	CycleCount int `json:"cycle_count" db:"cycle_count"`
 }
 
 type ICycleRepository interface {
@@ -19,4 +18,3 @@ type ICycleService interface {
 	GetAll() ([]Cycle, error)
 	GetProductsCyclesByYear(productID, year int) ([]Cycle, error)
 }
-

@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"tsProject/config"
 	"tsProject/services"
 
 	_ "tsProject/docs"
@@ -23,29 +24,42 @@ func NewHandler(
 }
 
 func (h *Handler) Init() {
-	var jwtSecret = []byte("guclu_gizli_qXrtyjalk33")
+	jwtSecret := config.JWTKey
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*", // Allows all origins
 		AllowMethods: "GET,POST,HEAD,PUT,DELETE,OPTIONS",
+		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
+	app.Static("/", "./public")
 	app.Post("/login", h.Login)
 	app.Post("/register", h.Register)
 	app.Get("/swagger/*", swagger.HandlerDefault)
+	//app.Use(JWTMiddleware(jwtSecret))
 	api := app.Group("/api", JWTMiddleware(jwtSecret))
 
 	products := api.Group("/products")
+	products.Get("/yok", h.GetAllProductsWithInstitutionAndCycle)
+	products.Get("/download", h.DownloadProductsWithInstitutionAndCycle)
 	products.Get("/", h.GetAllProductsWithInstitutions)
 	products.Post("/", h.AddProduct)
 	products.Get("/:id", h.GetByID)
 	products.Delete("/:id", h.DeleteProduct)
+	products.Get("/filterbyinsid/:id", h.GetProductsByInstitutionID)
+	products.Post("/filter", h.FilterProducts)
 
 	api.Get("/products/:product_id/cycles/:year", h.GetCyclesByProductID)
 	api.Post("/cycle", h.AddCycle)
 
 	// Institution rotaları
+	api.Get("/institution", h.GetAllInstitutions)
 	api.Post("/institution", h.AddInstitution)
 	api.Get("/institution/:id", h.GetInstitutionByID)
+
+	profile := api.Group("/profile")
+	profile.Get("/", h.GetProfile)
+	profile.Get("/institutions", h.GetAssignedProductsHandler)
+	profile.Get("/user", h.GetAllForUsers)
 
 	// Admin rotaları
 	admin := api.Group("/admin")

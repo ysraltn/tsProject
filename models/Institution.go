@@ -9,13 +9,13 @@ type Institution struct {
 type IInstitutionRepository interface {
 	Add(institution *Institution) error
 	// Delete(id int) error
-	// GetAll() ([]Institution, error)
+	GetAll() ([]Institution, error)
 	GetByID(id int) (*Institution, error)
 }
 
 type IInstitutionService interface {
 	Add(name, city string) error
 	// 	Delete(id int) error
-	// 	GetAll() ([]Product, error)
+	GetAll() ([]Institution, error)
 	GetByID(id int) (*Institution, error)
 }

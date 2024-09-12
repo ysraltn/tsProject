@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #e0e0e0;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .navbar {
+    width: 100%;
+    background-color: #1e1e1e !important;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar-brand {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    color: #ffffff;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #ffffff;
+  }
+  
+  .navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    margin: 0 10px;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  
+  .navbar-nav .nav-item .nav-link:hover {
+    color: #6200ea;
+  }
+  
+  .filter-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .institution-container {
+    background-color: #1e1e1e;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 100%;
+    max-width: 750px;
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  .institution-header {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  
+  .product-info {
+    padding: 8px;
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  
+  .cycles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .cycle-item {
+    background-color: #333;
+    border-radius: 4px;
+    padding: 5px;
+    text-align: center;
+    min-width: 50px;
+    flex: 1 1 calc(25% - 5px);
+    font-size: 12px;
+    color: #e0e0e0;
+  }
+  
+  .no-cycles {
+    color: #cccccc;
+    font-size: 12px;
+  }
+  
+  .add-cycle {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .card {
+    color: #ffffff;
+    background-color: #2c2c2c;
+  }
+  
+  .card-header {
+    background-color: #333;
+    border-bottom: 1px solid #444;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  h1 {
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding-top: 20px;
+    color: #ffffff;
+  }
+  
+  .btn-save {
+    background-color: #6200ea;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+  
+  .btn-save:hover {
+    background-color: #3700b3;
+  }
+  

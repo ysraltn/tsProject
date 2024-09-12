@@ -18,3 +18,240 @@
 {"event":"product_added","institution_id":1,"level":"info","msg":"product added","owner":"sil","product_id":0,"product_name":"12334444","product_serial":"12334444","responsible":"sil","status":"sil","time":"2024-08-28T11:27:16+03:00"}
 {"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-28T11:34:23+03:00","user_id":0,"user_name":""}
 {"event":"product_added","institution_id":1,"level":"info","msg":"product added","owner":"sil","product_id":0,"product_name":"12334444","product_serial":"12334444","responsible":"sil","status":"sil","time":"2024-08-28T11:35:08+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-28T14:01:39+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-08-28T14:02:41+03:00","user_id":11,"user_name":"admin"}
+{"context":{"cycle_no":124,"month":0,"product_id":3,"year":2024},"error":"pq: duplicate key value violates unique constraint \"cycles_pkey\"","level":"error","msg":"error adding cycle","time":"2024-08-28T14:04:55+03:00"}
+{"cycle_no":124,"event":"cycle_added","level":"info","month":0,"msg":"cycle added","product_id":3,"time":"2024-08-28T14:06:12+03:00","year":2024}
+{"cycle_no":124,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":3,"time":"2024-08-28T14:08:29+03:00","year":2024}
+{"cycle_no":125,"event":"cycle_added","level":"info","month":2,"msg":"cycle added","product_id":3,"time":"2024-08-28T14:15:49+03:00","year":2024}
+{"cycle_no":124,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":3,"time":"2024-08-28T14:32:20+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T15:34:18+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-08-29T15:35:49+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T15:58:11+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:11:14+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:12:35+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-08-29T16:13:11+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:16:02+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:18:21+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:19:29+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:25:08+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:29:54+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:35:08+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:35:45+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:54:53+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:55:43+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-08-29T16:58:18+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T09:21:33+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T09:26:08+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:03:43+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:24:57+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T10:28:58+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:31:28+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:33:38+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:35:03+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T10:36:57+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T11:01:00+03:00","user_id":0,"user_name":""}
+{"cycle_no":111,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":25,"time":"2024-09-02T11:34:52+03:00","year":2024}
+{"cycle_no":122,"event":"cycle_added","level":"info","month":2,"msg":"cycle added","product_id":25,"time":"2024-09-02T11:40:31+03:00","year":2024}
+{"event":"user_added","level":"info","msg":"user added","role":"supervisor","time":"2024-09-02T11:43:58+03:00","user_id":0,"user_name":"erhan"}
+{"event":"user_added","level":"info","msg":"user added","role":"supervisor","time":"2024-09-02T11:44:12+03:00","user_id":0,"user_name":"tuba"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-02T11:44:30+03:00","user_id":0,"user_name":"semih"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T13:19:16+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T13:20:27+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:00:26+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T14:00:45+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:01:22+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T14:01:53+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:03:35+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:04:03+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:07:25+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:09:46+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:10:12+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:12:20+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:14:39+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:17:40+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:25:38+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:42:33+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T14:53:09+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:53:40+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T14:56:16+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T15:04:26+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T15:21:51+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T15:22:13+03:00","user_id":7,"user_name":"yok"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T15:23:42+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T15:27:20+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T15:38:31+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T15:38:44+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T15:44:23+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:27:33+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T16:27:52+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:38:28+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:39:00+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:39:45+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T16:39:59+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:44:52+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:46:28+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T16:46:51+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:48:57+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T16:49:10+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:51:42+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:52:45+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T16:53:28+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:54:29+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:56:18+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T16:57:05+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:00:36+03:00","user_id":7,"user_name":"yok"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:01:02+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:01:10+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:01:19+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:01:56+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:02:08+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:03:47+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:03:58+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:04:13+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:05:43+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:05:54+03:00","user_id":7,"user_name":"yok"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T17:19:09+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-02T17:20:31+03:00","user_id":7,"user_name":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-02T17:23:21+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-02T17:26:48+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T08:14:04+03:00","user_id":0,"user_name":""}
+{"cycle_no":99,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":1,"time":"2024-09-03T08:21:15+03:00","year":2024}
+{"cycle_no":11,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":101,"time":"2024-09-03T08:23:36+03:00","year":2024}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T08:58:56+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-03T09:22:29+03:00","user_id":7,"user_name":"yok"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-03T09:24:20+03:00","user_id":0,"user_name":"birol"}
+{"event":"login","level":"info","msg":"user logged in","role":"user","time":"2024-09-03T09:27:20+03:00","user_id":18,"user_name":"birol"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-03T09:39:35+03:00","user_id":0,"user_name":"burak"}
+{"event":"login","level":"info","msg":"user logged in","role":"user","time":"2024-09-03T09:41:29+03:00","user_id":19,"user_name":"burak"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T13:51:23+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-03T14:05:52+03:00","user_id":7,"user_name":"yok"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T16:48:58+03:00","user_id":15,"user_name":"erhan"}
+{"cycle_no":123,"event":"cycle_added","level":"info","month":3,"msg":"cycle added","product_id":25,"time":"2024-09-03T16:58:15+03:00","year":2024}
+{"event":"login","level":"info","msg":"user logged in","role":"user","time":"2024-09-03T16:58:44+03:00","user_id":19,"user_name":"burak"}
+{"cycle_no":100,"event":"cycle_added","level":"info","month":2,"msg":"cycle added","product_id":1,"time":"2024-09-03T17:00:16+03:00","year":2024}
+{"cycle_no":1,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":1,"time":"2024-09-03T17:00:30+03:00","year":2023}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T17:52:29+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T17:52:55+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T17:54:38+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T17:55:26+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T17:55:36+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T17:56:52+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T17:57:09+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T17:59:04+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T17:59:25+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T18:11:07+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T18:11:32+03:00","user_id":15,"user_name":"erhan"}
+{"context":{"institution name":"sil"},"error":"pq: relation \"institution\" does not exist","level":"error","msg":"error adding institution","time":"2024-09-03T18:56:09+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T18:58:27+03:00","user_id":0,"user_name":""}
+{"context":{"institution name":"sil"},"error":"pq: duplicate key value violates unique constraint \"institutions_pkey\"","level":"error","msg":"error adding institution","time":"2024-09-03T18:58:34+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T19:09:45+03:00","user_id":0,"user_name":""}
+{"city":"sil","event":"institution_added","institution_name":"sil","level":"info","msg":"institution added","time":"2024-09-03T19:09:56+03:00"}
+{"city":"Zonguldak","event":"institution_added","institution_name":"bunu sil deneme","level":"info","msg":"institution added","time":"2024-09-03T19:17:21+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-03T19:19:50+03:00","user_id":0,"user_name":""}
+{"event":"product_added","institution_id":0,"level":"info","msg":"product added","owner":"string","product_id":0,"product_name":"string","product_serial":"string","responsible":"string","status":"string","time":"2024-09-03T19:25:41+03:00"}
+{"event":"product_added","institution_id":0,"level":"info","msg":"product added","owner":"string","product_id":0,"product_name":"string","product_serial":"string","responsible":"string","status":"string","time":"2024-09-03T19:27:31+03:00"}
+{"event":"product_added","institution_id":186,"level":"info","msg":"product added","owner":"yok","product_id":0,"product_name":"123","product_serial":"123","responsible":"yok","status":"yok","time":"2024-09-03T19:30:57+03:00"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T21:01:08+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T21:04:16+03:00","user_id":15,"user_name":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T21:58:12+03:00","user_id":15,"user_name":"erhan"}
+{"cycle_no":123,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":92,"time":"2024-09-03T21:59:29+03:00","year":2024}
+{"city":"Ordu","event":"institution_added","institution_name":"ordu eah","level":"info","msg":"institution added","time":"2024-09-03T22:01:05+03:00"}
+{"event":"product_added","institution_id":188,"level":"info","msg":"product added","owner":"asdfg","product_id":0,"product_name":"12345","product_serial":"12345","responsible":"xcb","status":"sdv","time":"2024-09-03T22:02:36+03:00"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-03T22:27:25+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-04T09:13:08+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-04T09:13:22+03:00","user_id":15,"user_name":"erhan"}
+{"city":"Zonguldak","event":"institution_added","institution_name":"silsil","level":"info","msg":"institution added","time":"2024-09-04T09:15:34+03:00"}
+{"event":"product_added","institution_id":189,"level":"info","msg":"product added","owner":"sll","product_id":0,"product_name":"124","product_serial":"124","responsible":"sil","status":"sil","time":"2024-09-04T09:16:14+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-04T09:19:36+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-04T12:20:15+03:00","user_id":0,"user_name":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-04T13:50:21+03:00","user_id":0,"user_name":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-04T13:51:41+03:00","user_id":15,"user_name":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T15:31:41+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T15:36:28+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T15:38:23+03:00","user_id":0,"username":""}
+{"event":"register","level":"info","msg":"user registered","role":"user","time":"2024-09-06T15:40:11+03:00","user_id":0,"username":"yok2"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:23:18+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:24:01+03:00","user_id":0,"username":""}
+{"event":"user_added","level":"info","msg":"user added","role":"admin","time":"2024-09-06T16:24:01+03:00","user_id":0,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:27:25+03:00","user_id":0,"username":""}
+{"event":"user_added","level":"info","msg":"user added","role":"admin","time":"2024-09-06T16:27:26+03:00","user_id":0,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:35:22+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:37:50+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-06T16:38:09+03:00","user_id":15,"username":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-06T16:51:05+03:00","user_id":0,"username":""}
+{"event":"user_added","level":"info","msg":"user added","role":"admin","time":"2024-09-06T16:51:06+03:00","user_id":0,"username":"admin"}
+{"event":"login","level":"info","msg":"user logged in","role":"user","time":"2024-09-06T16:51:39+03:00","user_id":20,"username":"yok2"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-06T16:51:59+03:00","user_id":7,"username":"yok"}
+{"event":"user_added","level":"info","msg":"user added","role":"admin","time":"2024-09-06T16:52:59+03:00","user_id":0,"username":"admin"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-06T16:53:25+03:00","user_id":24,"username":"admin"}
+{"city":"çşiğü","event":"institution_added","institution_name":"çççşşşğğğüüüıııiii","level":"info","msg":"institution added","time":"2024-09-06T16:56:57+03:00"}
+{"city":"çşiğü","event":"institution_added","institution_name":"çççşşşğğğüüüıııiii","level":"info","msg":"institution added","time":"2024-09-06T17:00:40+03:00"}
+{"city":"çşiğü","event":"institution_added","institution_name":"çççşşşğğğüüüıııiii","level":"info","msg":"institution added","time":"2024-09-06T17:06:57+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-09T14:00:24+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-09T14:03:51+03:00","user_id":7,"username":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-09T14:05:18+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-09T14:05:31+03:00","user_id":7,"username":"yok"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-09T14:06:08+03:00","user_id":0,"username":"emin"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-09T14:06:50+03:00","user_id":0,"username":"kivanc"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-09T14:07:25+03:00","user_id":0,"username":"merkez"}
+{"event":"user_added","level":"info","msg":"user added","role":"user","time":"2024-09-09T14:07:45+03:00","user_id":0,"username":"esat"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-09T15:09:49+03:00","user_id":14,"username":"erhan"}
+{"city":"Adana","event":"institution_added","institution_name":"silsil","level":"info","msg":"institution added","time":"2024-09-09T15:10:23+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-09T15:22:07+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-09T15:26:16+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T09:30:37+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T09:34:58+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T09:43:09+03:00","user_id":0,"username":""}
+{"city":"Zonguldak","event":"institution_added","institution_name":"zilzil","level":"info","msg":"institution added","time":"2024-09-10T10:00:15+03:00"}
+{"context":{"institution_id":187,"product_serial":"134131","responsible_id":0},"error":"pq: insert or update on table \"products\" violates foreign key constraint \"fk_responsible_id\"","level":"error","msg":"error adding product","time":"2024-09-10T10:12:30+03:00"}
+{"context":{"institution_id":187,"product_serial":"134131","responsible_id":0},"error":"pq: insert or update on table \"products\" violates foreign key constraint \"fk_responsible_id\"","level":"error","msg":"error adding product","time":"2024-09-10T10:12:44+03:00"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T10:41:59+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-10T10:42:28+03:00","user_id":7,"username":"yok"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T10:43:41+03:00","user_id":0,"username":""}
+{"event":"product_added","institution_id":187,"level":"info","msg":"product added","owner":187,"product_id":0,"product_name":"14421","product_serial":"14421","responsible":10,"status":"off","time":"2024-09-10T10:54:42+03:00"}
+{"city":"Adana","event":"institution_added","institution_name":"aaaaaa","level":"info","msg":"institution added","time":"2024-09-10T13:26:19+03:00"}
+{"event":"product_added","institution_id":188,"level":"info","msg":"product added","owner":188,"product_id":0,"product_name":"12345676","product_serial":"12345676","responsible":10,"status":"çalışıyor","time":"2024-09-10T13:27:13+03:00"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-10T13:31:27+03:00","user_id":14,"username":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-10T13:32:19+03:00","user_id":14,"username":"erhan"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-10T16:05:28+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-10T16:06:00+03:00","user_id":24,"username":"admin"}
+{"event":"user_added","level":"info","msg":"user added","role":"admin","time":"2024-09-10T16:06:48+03:00","user_id":0,"username":"elif"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-10T16:06:54+03:00","user_id":29,"username":"elif"}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":264,"time":"2024-09-11T08:43:55+03:00","year":2024}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":264,"time":"2024-09-11T08:44:06+03:00","year":2024}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":2,"msg":"cycle added","product_id":264,"time":"2024-09-11T08:44:16+03:00","year":2024}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:46:42+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T08:47:46+03:00","user_id":0,"username":""}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:48:03+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T08:48:48+03:00","user_id":0,"username":""}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:48:59+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T08:49:49+03:00","user_id":0,"username":""}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:50:10+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T08:50:54+03:00","user_id":0,"username":""}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:51:03+03:00","year":2024}
+{"cycle_count":16,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:53:05+03:00","year":2024}
+{"cycle_count":0,"event":"cycle_added","level":"info","month":1,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:53:38+03:00","year":2024}
+{"cycle_count":1308,"event":"cycle_added","level":"info","month":9,"msg":"cycle added","product_id":260,"time":"2024-09-11T08:54:18+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:03:03+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-11T10:04:08+03:00","user_id":24,"username":"admin"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-11T10:05:15+03:00","user_id":24,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:12:05+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:14:13+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:19:16+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:26:47+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-11T10:30:27+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"supervisor","time":"2024-09-11T11:32:32+03:00","user_id":14,"username":"erhan"}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-11T11:32:44+03:00","user_id":29,"username":"elif"}
+{"cycle_count":1235,"event":"cycle_added","level":"info","month":6,"msg":"cycle added","product_id":264,"time":"2024-09-11T11:33:05+03:00","year":2024}
+{"cycle_count":1450,"event":"cycle_added","level":"info","month":7,"msg":"cycle added","product_id":264,"time":"2024-09-11T11:33:24+03:00","year":2024}
+{"cycle_count":60,"event":"cycle_added","level":"info","month":3,"msg":"cycle added","product_id":260,"time":"2024-09-11T11:36:27+03:00","year":2024}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-12T18:13:03+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-12T18:13:31+03:00","user_id":24,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-12T18:18:29+03:00","user_id":0,"username":""}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-12T18:21:01+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-12T18:21:16+03:00","user_id":24,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-12T18:23:54+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-12T18:24:21+03:00","user_id":24,"username":"admin"}
+{"event":"database_connected","level":"info","msg":"Database connected","product_id":0,"product_name":"","time":"2024-09-12T18:26:40+03:00","user_id":0,"username":""}
+{"event":"login","level":"info","msg":"user logged in","role":"admin","time":"2024-09-12T18:26:52+03:00","user_id":24,"username":"admin"}

@@ -23,7 +23,7 @@ func (h *Handler) Login(c *fiber.Ctx) error {
 		})
 	}
 
-	token, userRole, err := h.services.AuthService.Login(loginRequest.Username, loginRequest.Password)
+	userID, token, userRole, err := h.services.AuthService.Login(loginRequest.Username, loginRequest.Password)
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "Login Error",
@@ -32,6 +32,7 @@ func (h *Handler) Login(c *fiber.Ctx) error {
 	}
 	return c.JSON(fiber.Map{
 		"message": "Login successful",
+		"userID":  userID,
 		"token":   token,
 		"role":    userRole,
 	})
@@ -55,7 +56,7 @@ func (h *Handler) Register(c *fiber.Ctx) error {
 			"error":   err.Error(),
 		})
 	}
-	err = h.services.AuthService.Register(registerRequest.Username, registerRequest.Password)
+	err = h.services.AuthService.Register(registerRequest.Username, registerRequest.Password, registerRequest.Name, registerRequest.Surname)
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "error registering user",

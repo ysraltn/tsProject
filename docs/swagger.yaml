@@ -1,9 +1,13 @@
 definitions:
   handlers.AddUserRequest:
     properties:
+      name:
+        type: string
       password:
         type: string
       role:
+        type: string
+      surname:
         type: string
       username:
         type: string
@@ -17,20 +21,33 @@ definitions:
     type: object
   handlers.RegisterRequest:
     properties:
+      name:
+        type: string
       password:
+        type: string
+      surname:
         type: string
       username:
         type: string
     type: object
   models.Cycle:
     properties:
-      cycle:
+      cycle_count:
         type: integer
       id:
         type: integer
       month:
         type: integer
       product_id:
+        type: integer
+      year:
+        type: integer
+    type: object
+  models.CycleForArray:
+    properties:
+      cycle_count:
+        type: integer
+      month:
         type: integer
       year:
         type: integer
@@ -54,13 +71,22 @@ definitions:
         type: integer
       model:
         type: string
-      owner:
-        type: string
-      responsible:
-        type: string
+      owner_id:
+        type: integer
+      responsible_id:
+        type: integer
       serial:
         type: string
       status:
+        type: string
+    type: object
+  models.ProductFilter:
+    properties:
+      institution_city:
+        type: string
+      institution_name:
+        type: string
+      product_model:
         type: string
     type: object
   models.ProductWithInstitution:
@@ -75,20 +101,55 @@ definitions:
         type: string
       model:
         type: string
-      owner:
-        type: string
-      responsible:
-        type: string
+      owner_id:
+        type: integer
+      responsible_id:
+        type: integer
       serial:
         type: string
       status:
+        type: string
+    type: object
+  models.ProductWithInstitutionAndCycle:
+    properties:
+      cycles:
+        description: Use the custom type directly for JSON scanning
+        items:
+          $ref: '#/definitions/models.CycleForArray'
+        type: array
+      institution_city:
+        type: string
+      institution_id:
+        type: integer
+      institution_name:
+        type: string
+      product_brand:
+        type: string
+      product_id:
+        type: integer
+      product_model:
+        type: string
+      product_serial:
+        type: string
+    type: object
+  models.UserForUsers:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      surname:
         type: string
     type: object
   models.UserResponse:
     properties:
       id:
         type: integer
+      name:
+        type: string
       role:
+        type: string
+      surname:
         type: string
       username:
         type: string
@@ -211,6 +272,30 @@ paths:
       tags:
       - cycles
   /api/institution:
+    get:
+      consumes:
+      - application/json
+      description: Get all Institutions
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Institution'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get All Institutions
+      tags:
+      - institutions
     post:
       consumes:
       - application/json
@@ -450,6 +535,195 @@ paths:
       summary: Get Cycles by Product ID and Year
       tags:
       - cycles
+  /api/products/filter:
+    post:
+      consumes:
+      - application/json
+      description: Filter products by given filter
+      parameters:
+      - description: Product filter
+        in: body
+        name: filter
+        required: true
+        schema:
+          $ref: '#/definitions/models.ProductFilter'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ProductWithInstitutionAndCycle'
+            type: array
+        "400":
+          description: Invalid JSON format
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Failed to fetch products
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Filter Products
+      tags:
+      - products
+  /api/products/filterbyinsid/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get products by institution ID
+      parameters:
+      - description: Institution ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ProductWithInstitutionAndCycle'
+            type: array
+        "400":
+          description: Invalid institution ID
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Failed to fetch filtered products
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Filter Products by Institution ID
+      tags:
+      - products
+  /api/products/yok:
+    get:
+      consumes:
+      - application/json
+      description: Get all products with institution and cycle
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ProductWithInstitutionAndCycle'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get All Products with institution and cycle
+      tags:
+      - products
+  /api/profile:
+    get:
+      consumes:
+      - application/json
+      description: Get the profile information of the authenticated user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get User profile
+      tags:
+      - profile
+  /api/profile/institutions:
+    get:
+      consumes:
+      - application/json
+      description: Get products assigned to the current user based on their JWT token
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ProductWithInstitutionAndCycle'
+            type: array
+        "400":
+          description: Invalid user ID
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Failed to fetch assigned products
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get Assigned Products
+      tags:
+      - profile
+  /api/profile/user:
+    get:
+      consumes:
+      - application/json
+      description: Get users names for select input
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.UserForUsers'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: Get Users Names
+      tags:
+      - profile
   /login:
     post:
       consumes:

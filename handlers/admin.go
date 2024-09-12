@@ -9,6 +9,8 @@ type AddUserRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	Role     string `json:"role"`
+	Name     string `json:"name"`
+	Surname  string `json:"surname"`
 }
 
 // Admin handler
@@ -52,7 +54,7 @@ func (h *Handler) AddUser(c *fiber.Ctx) error {
 			"error":   err.Error(),
 		})
 	}
-	err = h.services.UserService.Add(addUserRequest.Username, addUserRequest.Password, addUserRequest.Role)
+	err = h.services.UserService.Add(addUserRequest.Username, addUserRequest.Password, addUserRequest.Role, addUserRequest.Name, addUserRequest.Surname)
 	if err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "error adding user",
