@@ -13,6 +13,15 @@ type AddUserRequest struct {
 	Surname  string `json:"surname"`
 }
 
+type UpdateUserRequest struct {
+	ID       int    `json:"id"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+	Role     string `json:"role"`
+	Name     string `json:"name"`
+	Surname  string `json:"surname"`
+}
+
 // Admin handler
 // @Summary Admin access
 // @Description This endpoint is restricted to admin users only. It validates the JWT token and checks if the user has an "admin" role.
@@ -82,4 +91,33 @@ func (h *Handler) GetAllUsers(c *fiber.Ctx) error {
 		})
 	}
 	return Response(c, 200, "users fetched successfully", users)
+}
+
+// @Summary UpdateUser
+// @Description Update user with given parameters by id
+// @Tags admin
+// @Accept  json
+// @Produce  json
+// @Param updateUserRequest body UpdateUserRequest true "Update User Request"
+// @Success 200 {object} map[string]string "token"
+// @Failure 400 {object} map[string]string "Login Error"
+// @Security BearerAuth
+// @Router /api/admin/user [put]
+func (h *Handler) UpdateUserByID(c *fiber.Ctx) error {
+	var updateUserRequest UpdateUserRequest
+	err := c.BodyParser(&updateUserRequest)
+	if err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid JSON format",
+			"error":   err.Error(),
+		})
+	}
+	err = h.services.UserService.Update(updateUserRequest.ID, updateUserRequest.Username, updateUserRequest.Password, updateUserRequest.Role, updateUserRequest.Name, updateUserRequest.Surname)
+	if err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "error updating user",
+			"error":   err.Error(),
+		})
+	}
+	return Response(c, 200, "user updated successfully", updateUserRequest)
 }

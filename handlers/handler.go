@@ -42,6 +42,7 @@ func (h *Handler) Init() {
 	api := app.Group("/api", JWTMiddleware(jwtSecret))
 
 	products := api.Group("/products")
+	products.Use(SupervisorMiddleware)
 	products.Get("/yok", h.GetAllProductsWithInstitutionAndCycle)
 	products.Get("/download", h.DownloadProductsWithInstitutionAndCycle)
 	products.Get("/", h.GetAllProductsWithInstitutions)
@@ -69,6 +70,7 @@ func (h *Handler) Init() {
 	admin.Use(AdminMiddleware)
 	admin.Get("/", h.Admin)
 	admin.Post("/user", h.AddUser)
+	admin.Put("/user", h.UpdateUserByID)
 	admin.Get("/user", h.GetAllUsers)
 
 	app.Listen(":3000")

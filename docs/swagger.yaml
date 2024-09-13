@@ -30,11 +30,24 @@ definitions:
       username:
         type: string
     type: object
+  handlers.UpdateUserRequest:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+      surname:
+        type: string
+      username:
+        type: string
+    type: object
   models.Cycle:
     properties:
       cycle_count:
-        type: integer
-      id:
         type: integer
       month:
         type: integer
@@ -233,6 +246,37 @@ paths:
       security:
       - BearerAuth: []
       summary: AddUser
+      tags:
+      - admin
+    put:
+      consumes:
+      - application/json
+      description: Update user with given parameters by id
+      parameters:
+      - description: Update User Request
+        in: body
+        name: updateUserRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handlers.UpdateUserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: token
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Login Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      security:
+      - BearerAuth: []
+      summary: UpdateUser
       tags:
       - admin
   /api/cycle:

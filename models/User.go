@@ -30,6 +30,7 @@ type IUserRepository interface {
 	GetByID(id int) (*User, error)
 	GetByUsername(username string) (*User, error)
 	GetAllForUsers() ([]UserForUsers, error)
+	Update(user *User) error
 }
 
 type IUserService interface {
@@ -39,4 +40,5 @@ type IUserService interface {
 	GetByID(id int) (*User, error)
 	GetByUsername(username string) (*User, error)
 	GetAllForUsers() ([]UserForUsers, error)
+	Update(id int, username, password, role, name, surname string) error
 }

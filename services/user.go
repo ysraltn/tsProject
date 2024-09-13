@@ -111,3 +111,37 @@ func (s *UserService) GetAllForUsers() ([]models.UserForUsers, error) {
 	}
 	return users, nil
 }
+
+// fonksiyonu copilot yazdı, kontrol et
+func (s *UserService) Update(id int, username, password, role, name, surname string) error {
+	user, err := s.userRepositories.GetByID(id)
+	if err != nil {
+		return err
+	}
+	hashedPassword, err := utils.HashPassword(password)
+	if err != nil {
+		return err
+	}
+	user.Username = username
+	user.Password = hashedPassword
+	user.Role = role
+	user.Name = name
+	user.Surname = surname
+	err = s.userRepositories.Update(user)
+	if err != nil {
+		s.logger.Error(models.ErrorLog{
+			Message: "error updating user",
+			Error:   err.Error(),
+			Context: map[string]interface{}{
+				"user_id": id,
+			},
+		})
+		return err
+	}
+	s.logger.Info(models.InfoLog{
+		Message: "user updated",
+		Event:   "user_updated",
+		UserID:  id,
+	})
+	return nil
+}

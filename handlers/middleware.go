@@ -44,6 +44,26 @@ func AdminMiddleware(c *fiber.Ctx) error {
 	return c.Next()
 }
 
+func SupervisorMiddleware(c *fiber.Ctx) error {
+	user, ok := c.Locals("user").(*jwt.Token)
+	if !ok {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Unauthorized"})
+	}
+
+	claims, ok := user.Claims.(jwt.MapClaims)
+	if !ok {
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{"error": "Unauthorized"})
+	}
+
+	role, ok := claims["role"].(string)
+	if !ok || role != "supervisor" && role != "admin" {
+		return c.Status(fiber.StatusForbidden).JSON(fiber.Map{"error": "Access denied"})
+	}
+
+	// Bir sonraki middleware veya handler'a geç
+	return c.Next()
+}
+
 // GetUserIDFromJWT retrieves the user ID from JWT token in the context
 func ParseJWT(c *fiber.Ctx) (*JWTClaimsUser, error) {
 	var JWTUser JWTClaimsUser
