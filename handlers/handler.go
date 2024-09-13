@@ -32,6 +32,9 @@ func (h *Handler) Init() {
 		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
 	}))
 	app.Static("/", "./public")
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendFile("./public/profile.html") // HTML dosyasını sunar
+	})
 	app.Post("/login", h.Login)
 	app.Post("/register", h.Register)
 	app.Get("/swagger/*", swagger.HandlerDefault)

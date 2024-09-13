@@ -184,6 +184,8 @@
           displayInstitutions(result.data);
         } else {
           document.getElementById('error-message').textContent = 'Failed to fetch institutions information.';
+          window.location.replace("./login.html");
+          
         }
       } catch (error) {
         document.getElementById('error-message').textContent = 'An error occurred. Please try again.';

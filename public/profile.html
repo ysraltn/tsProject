@@ -72,6 +72,7 @@ window.onload = async function () {
     if (!token) {
         console.error('Token not found in localStorage.');
         document.getElementById('profile-info').innerText = 'Unauthorized. Please log in.';
+        document.getElementsByClassName('button-container')[0].innerHTML = '<button onclick="goToLogin()">Giriş Yap</button>';
         return;
     }
 
@@ -98,6 +99,7 @@ window.onload = async function () {
             `;
         } else {
             document.getElementById('profile-info').innerText = 'Failed to fetch profile information.';
+            document.getElementsByClassName('button-container')[0].innerHTML = '<button onclick="goToLogin()">Giriş Yap</button>';
         }
     } catch (error) {
         document.getElementById('profile-info').innerText = 'An error occurred. Please try again.';
@@ -109,6 +111,10 @@ window.onload = async function () {
         // Kurumlar butonuna tıklanınca yönlendirme yap
         function goToInstitutions() {
             window.location.href = '/institutions.html';
+        }
+
+        function goToLogin() {
+            window.location.href = '/login.html';
         }
     </script>
 
