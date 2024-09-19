@@ -37,7 +37,14 @@ func main() {
 		Event:   "database_connected",
 	})
 	defer db.Close()
-	services := services.CreateNewServices(repositories.NewUserRepository(db), repositories.NewProductRepository(db), repositories.NewCycleRepository(db), repositories.NewInstitutionRepository(db), logger)
+
+	services := services.CreateNewServices(
+		repositories.NewUserRepository(db), 
+		repositories.NewProductRepository(db), 
+		repositories.NewCycleRepository(db), 
+		repositories.NewInstitutionRepository(db), 
+		logger)
+
 	handler := handlers.NewHandler(*services)
 
 	handler.Init()

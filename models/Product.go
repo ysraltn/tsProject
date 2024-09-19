@@ -38,7 +38,7 @@ type ProductWithInstitutionAndCycle struct {
 	InstitutionID   int        `json:"institution_id" db:"institution_id"`
 	InstitutionName string     `json:"institution_name" db:"institution_name"`
 	InstitutionCity string     `json:"institution_city" db:"institution_city"`
-	Cycles          CyclesJSON `json:"cycles" db:"cycles"` // Use the custom type directly for JSON scanning
+	Cycles          CyclesJSON `json:"cycles" db:"cycles"` 
 }
 
 type CycleForArray struct {

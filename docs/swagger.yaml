@@ -126,7 +126,6 @@ definitions:
   models.ProductWithInstitutionAndCycle:
     properties:
       cycles:
-        description: Use the custom type directly for JSON scanning
         items:
           $ref: '#/definitions/models.CycleForArray'
         type: array

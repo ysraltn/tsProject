@@ -38,7 +38,7 @@ func (h *Handler) Init() {
 	app.Post("/login", h.Login)
 	app.Post("/register", h.Register)
 	app.Get("/swagger/*", swagger.HandlerDefault)
-	//app.Use(JWTMiddleware(jwtSecret))
+	
 	api := app.Group("/api", JWTMiddleware(jwtSecret))
 
 	products := api.Group("/products")

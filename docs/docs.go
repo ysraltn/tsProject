@@ -1244,7 +1244,6 @@ const docTemplate = `{
             "type": "object",
             "properties": {
                 "cycles": {
-                    "description": "Use the custom type directly for JSON scanning",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/models.CycleForArray"
