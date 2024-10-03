@@ -65,14 +65,37 @@ func (h *Handler) GetAllProducts(c *fiber.Ctx) error {
 // @Security BearerAuth
 // @Router /api/products [get]
 func (h *Handler) GetAllProductsWithInstitutions(c *fiber.Ctx) error {
-	products, err := h.services.ProductService.GetAllWithInstitutions()
+	user, err := ParseJWT(c)
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Failed to fetch products with institutions",
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid user",
 			"error":   err.Error(),
 		})
 	}
-	return Response(c, 200, "Products with institutions fetched successfully", products)
+	if user.Role == "admin" || user.Role == "supervisor" {
+		products, err := h.services.ProductService.GetAllWithInstitutions()
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"message": "Failed to fetch products with institutions",
+				"error":   err.Error(),
+			})
+		}
+		return Response(c, 200, "Products with institutions fetched successfully", products)
+	}
+	if user.Role == "user" {
+		products, err := h.services.ProductService.GetAllWithInstitutions()
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"message": "Failed to fetch products with institutions",
+				"error":   err.Error(),
+			})
+		}
+		return Response(c, 200, "Products with institutions fetched successfully", products)
+	}
+	return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
+		"message": "Access denied",
+		"error":   "You are not authorized to access this resource",
+	})
 }
 
 // @Summary Delete Product

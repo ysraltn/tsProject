@@ -10,19 +10,18 @@ import (
 
 // JWTMiddleware creates a new middleware that protects routes using JWT
 func JWTMiddleware(secret []byte) fiber.Handler {
-    return jwtware.New(jwtware.Config{
-        SigningKey: secret,
-		TokenLookup:   "header:Authorization", // Authorization başlığından token'ı alır
-		AuthScheme:    "Bearer",
-        ErrorHandler: func(c *fiber.Ctx, err error) error {
-            return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-                "message": "Unauthorized",
-                "error":   err.Error(),
-            })
-        },
-    })
+	return jwtware.New(jwtware.Config{
+		SigningKey:  secret,
+		TokenLookup: "header:Authorization", // Authorization başlığından token'ı alır
+		AuthScheme:  "Bearer",
+		ErrorHandler: func(c *fiber.Ctx, err error) error {
+			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+				"message": "Unauthorized",
+				"error":   err.Error(),
+			})
+		},
+	})
 }
-
 
 func AdminMiddleware(c *fiber.Ctx) error {
 	user, ok := c.Locals("user").(*jwt.Token)
@@ -86,12 +85,12 @@ func ParseJWT(c *fiber.Ctx) (*JWTClaimsUser, error) {
 	}
 
 	userID := int(userIDFloat) // float64'ü int'e dönüştür
-	JWTUser.UserID=userID
-	JWTUser.Username, ok= claims["username"].(string)
+	JWTUser.UserID = userID
+	JWTUser.Username, ok = claims["username"].(string)
 	if !ok {
 		return nil, fiber.NewError(fiber.StatusBadRequest, "Invalid format")
 	}
-	JWTUser.Role, ok= claims["role"].(string)
+	JWTUser.Role, ok = claims["role"].(string)
 	if !ok {
 		return nil, fiber.NewError(fiber.StatusBadRequest, "Invalid format")
 	}

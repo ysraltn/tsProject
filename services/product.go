@@ -207,3 +207,11 @@ func (s *ProductService) DownloadCycles(format string) (excelBuffer *bytes.Buffe
 	}
 	return nil, errors.New("invalid format")
 }
+
+func (s *ProductService) GetAllProductsWithInstitutionAndCycleByResponsibility(userID int) ([]models.ProductWithInstitutionAndCycle, error) {
+	products, err := s.productRepositories.GetAllProductsWithInstitutionAndCycleByResponsibility(userID)
+	if err != nil {
+		return nil, err
+	}
+	return products, nil
+}

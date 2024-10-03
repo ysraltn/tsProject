@@ -38,12 +38,12 @@ func (h *Handler) Init() {
 	app.Post("/login", h.Login)
 	app.Post("/register", h.Register)
 	app.Get("/swagger/*", swagger.HandlerDefault)
-	
+
 	api := app.Group("/api", JWTMiddleware(jwtSecret))
 
 	products := api.Group("/products")
-	products.Use(SupervisorMiddleware)
 	products.Get("/yok", h.GetAllProductsWithInstitutionAndCycle)
+	products.Use(SupervisorMiddleware)
 	products.Get("/download", h.DownloadProductsWithInstitutionAndCycle)
 	products.Get("/", h.GetAllProductsWithInstitutions)
 	products.Post("/", h.AddProduct)

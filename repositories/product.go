@@ -234,3 +234,58 @@ func (r *ProductRepository) Filter(institutionName, institutionCity, productMode
 	}
 	return products, nil
 }
+
+func (r *ProductRepository) GetAllProductsWithInstitutionAndCycleByResponsibility(userID int) ([]models.ProductWithInstitutionAndCycle, error) {
+	var products []models.ProductWithInstitutionAndCycle
+
+	query := `
+        SELECT 
+            p.id AS product_id, 
+            p.serial AS product_serial, 
+            p.brand AS product_brand, 
+            p.model AS product_model, 
+            i.id AS institution_id,
+            i.name AS institution_name, 
+            i.city AS institution_city, 
+            COALESCE(json_agg(json_build_object(
+                'year', c.year, 
+                'month', c.month, 
+                'cycle_count', c.cycle_count
+            )) FILTER (WHERE c.cycle_count IS NOT NULL), '[]') AS cycles
+        FROM products p
+        JOIN institutions i ON p.institution_id = i.id
+        LEFT JOIN cycles c ON p.id = c.product_id
+        WHERE p.responsible_id = $1
+        GROUP BY p.id, i.id;
+    `
+
+	// Pass userID as a parameter to the query
+	rows, err := r.db.Query(query, userID)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var product models.ProductWithInstitutionAndCycle
+		var cyclesJSON []byte
+
+		// Scan the row values into the product struct fields
+		err := rows.Scan(&product.ProductID, &product.ProductSerial, &product.ProductBrand, &product.ProductModel,
+			&product.InstitutionID, &product.InstitutionName, &product.InstitutionCity, &cyclesJSON)
+		if err != nil {
+			return nil, err
+		}
+
+		// Unmarshal the JSON data into the Cycles field
+		var cycles []models.CycleForArray
+		if err := json.Unmarshal(cyclesJSON, &cycles); err != nil {
+			return nil, err
+		}
+		product.Cycles = cycles
+
+		products = append(products, product)
+	}
+
+	return products, nil
+}

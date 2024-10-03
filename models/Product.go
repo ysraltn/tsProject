@@ -38,7 +38,7 @@ type ProductWithInstitutionAndCycle struct {
 	InstitutionID   int        `json:"institution_id" db:"institution_id"`
 	InstitutionName string     `json:"institution_name" db:"institution_name"`
 	InstitutionCity string     `json:"institution_city" db:"institution_city"`
-	Cycles          CyclesJSON `json:"cycles" db:"cycles"` 
+	Cycles          CyclesJSON `json:"cycles" db:"cycles"`
 }
 
 type CycleForArray struct {
@@ -82,6 +82,7 @@ type IProductRepository interface {
 	GetAssignedProducts(userID int) ([]ProductWithInstitutionAndCycle, error)
 	FilterByInstitutionID(institutionID int) ([]ProductWithInstitutionAndCycle, error)
 	Filter(institutionName, institutionCity, productModel string) ([]ProductWithInstitutionAndCycle, error)
+	GetAllProductsWithInstitutionAndCycleByResponsibility(userID int) ([]ProductWithInstitutionAndCycle, error)
 }
 
 type IProductService interface {
@@ -95,4 +96,5 @@ type IProductService interface {
 	FilterByInstitutionID(institutionID int) ([]ProductWithInstitutionAndCycle, error)
 	Filter(filter ProductFilter) ([]ProductWithInstitutionAndCycle, error)
 	DownloadCycles(format string) (excelBuffer *bytes.Buffer, err error)
+	GetAllProductsWithInstitutionAndCycleByResponsibility(userID int) ([]ProductWithInstitutionAndCycle, error)
 }
