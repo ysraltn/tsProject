@@ -166,14 +166,38 @@ func (h *Handler) GetByID(c *fiber.Ctx) error {
 // @Security BearerAuth
 // @Router /api/products/yok [get]
 func (h *Handler) GetAllProductsWithInstitutionAndCycle(c *fiber.Ctx) error {
-	products, err := h.services.ProductService.GetAllProductsWithInstitutionAndCycle()
+	user, err := ParseJWT(c)
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"message": "Failed to fetch products with institutions and cycles",
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid user",
 			"error":   err.Error(),
 		})
 	}
-	return Response(c, http.StatusOK, "Products with institutions and cycles fetched successfully", products)
+	if user.Role == "admin" || user.Role == "supervisor" {
+
+		products, err := h.services.ProductService.GetAllProductsWithInstitutionAndCycle()
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"message": "Failed to fetch products with institutions and cycles",
+				"error":   err.Error(),
+			})
+		}
+		return Response(c, http.StatusOK, "Products with institutions and cycles fetched successfully", products)
+	}
+	if user.Role == "user" {
+		products, err := h.services.ProductService.GetAllProductsWithInstitutionAndCycleByResponsibility(user.UserID)
+		if err != nil {
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+				"message": "Failed to fetch products with institutions and cycles",
+				"error":   err.Error(),
+			})
+		}
+		return Response(c, http.StatusOK, "Products with institutions and cycles fetched successfully", products)
+	}
+	return c.Status(fiber.StatusForbidden).JSON(fiber.Map{
+		"message": "Access denied",
+		"error":   "You are not authorized to access this resource",
+	})
 }
 
 // @Summary Get Assigned Products
